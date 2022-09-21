@@ -4,6 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudio/PTB/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Program/github/PTBA1/app/src/main/res/drawable/ic_logo_unand.xml" value="0.2985" />
+        <entry key="..\:/Program/github/PTBA1/app/src/main/res/drawable/ic_username.xml" value="0.2985" />
+        <entry key="..\:/Program/github/PTBA1/app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="..\:/Program/github/PTBA1/app/src/main/res/layout/activity_main.xml" value="0.34479166666666666" />
+        <entry key="..\:/Program/github/PTBA1/app/src/main/res/layout/content_main.xml" value="0.34479166666666666" />
+        <entry key="..\:/Program/github/PTBA1/app/src/main/res/layout/fragment_first.xml" value="0.34479166666666666" />
+        <entry key="..\:/Program/github/PTBA1/app/src/main/res/layout/fragment_second.xml" value="0.34479166666666666" />
       </map>
     </option>
   </component>
