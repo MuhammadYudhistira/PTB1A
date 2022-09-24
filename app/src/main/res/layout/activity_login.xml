@@ -11,7 +11,7 @@
         android:layout_width="172dp"
         android:layout_height="159dp"
         android:layout_marginTop="100dp"
-        android:contentDescription="TODO"
+        android:contentDescription="@string/logounand"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:onClick="onButtonLoginClicked"
-        android:text="Login"
+        android:text="@string/login"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayoutPassword"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="@+id/textInputLayoutPassword"
@@ -39,7 +39,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="32dp"
-        android:hint="Username"
+        android:hint="@string/username"
         app:boxCornerRadiusBottomEnd="10dp"
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
@@ -53,8 +53,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editUsername"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        </com.google.android.material.textfield.TextInputEditText>
+            android:layout_height="wrap_content"
+            android:textColorHint="#757575"></com.google.android.material.textfield.TextInputEditText>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -65,7 +65,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
-        android:hint="Password"
+        android:hint="@string/password"
         app:startIconDrawable="@drawable/ic_lock"
         app:endIconMode="password_toggle"
         app:boxCornerRadiusBottomEnd="10dp"
@@ -79,7 +79,8 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:textColorHint="#757575" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

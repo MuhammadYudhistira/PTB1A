@@ -5,19 +5,17 @@
       <map>
         <entry key="..\:/AndroidStudio/PTB/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Program/github/PTBA1/app/src/main/res/drawable/ic_logo_unand.xml" value="0.2985" />
-        <entry key="..\:/Program/github/PTBA1/app/src/main/res/drawable/ic_o_unand.xml" value="0.2985" />
-        <entry key="..\:/Program/github/PTBA1/app/src/main/res/drawable/ic_uselogrname.xml" value="0.2985" />
         <entry key="..\:/Program/github/PTBA1/app/src/main/res/drawable/ic_username.xml" value="0.2985" />
+        <entry key="..\:/Program/github/PTBA1/app/src/main/res/layout/activity_detail_logbook.xml" value="0.34479166666666666" />
+        <entry key="..\:/Program/github/PTBA1/app/src/main/res/layout/activity_home.xml" value="0.34479166666666666" />
+        <entry key="..\:/Program/github/PTBA1/app/src/main/res/layout/activity_list_log_book.xml" value="0.34479166666666666" />
         <entry key="..\:/Program/github/PTBA1/app/src/main/res/layout/activity_list_logbook.xml" value="0.34479166666666666" />
         <entry key="..\:/Program/github/PTBA1/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Program/github/PTBA1/app/src/main/res/layout/activity_main.xml" value="0.34479166666666666" />
-        <entry key="..\:/Program/github/PTBA1/app/src/main/res/layout/activity_profile.xml" value="0.21" />
+        <entry key="..\:/Program/github/PTBA1/app/src/main/res/layout/activity_profile.xml" value="0.33" />
         <entry key="..\:/Program/github/PTBA1/app/src/main/res/layout/content_main.xml" value="0.34479166666666666" />
         <entry key="..\:/Program/github/PTBA1/app/src/main/res/layout/fragment_first.xml" value="0.34479166666666666" />
         <entry key="..\:/Program/github/PTBA1/app/src/main/res/layout/fragment_second.xml" value="0.34479166666666666" />
-        <entry key="..\:/Users/Nurharzeki/StudioProjects/PTB1A/app/src/main/res/layout/activity_home.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/Nurharzeki/StudioProjects/PTB1A/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
-        <entry key="..\:/Users/Nurharzeki/StudioProjects/PTB1A/app/src/main/res/layout/activity_profile.xml" value="0.22826086956521738" />
       </map>
     </option>
   </component>
