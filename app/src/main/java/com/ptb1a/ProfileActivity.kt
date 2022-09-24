@@ -15,4 +15,14 @@ class ProfileActivity : AppCompatActivity() {
         val login = Intent(this, LoginActivity::class.java )
         startActivity(login)
     }
+
+    fun onButtonProfilBackCliked(view: View) {
+        val login = Intent(this, HomeActivity::class.java )
+        startActivity(login)
+    }
+
+    fun onButtonUpdateProfilClicked(view: View) {
+        val login = Intent(this, UpdateProfileActivity::class.java )
+        startActivity(login)
+    }
 }

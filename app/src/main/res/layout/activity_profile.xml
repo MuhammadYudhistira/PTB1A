@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ProfileActivity">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/buttonProfilBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:onClick="onButtonProfilBackCliked"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/actionModeCloseDrawable" />
+
     <Button
         android:id="@+id/buttonLogout"
         android:layout_width="wrap_content"
@@ -31,6 +43,7 @@
         android:layout_width="152dp"
         android:layout_height="42dp"
         android:layout_marginTop="24dp"
+        android:onClick="onButtonUpdateProfilClicked"
         android:text="Update Profil"
         app:layout_constraintStart_toStartOf="@+id/accountEmail"
         app:layout_constraintTop_toBottomOf="@+id/accountEmail" />
