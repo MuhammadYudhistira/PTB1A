@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 
 class UpdateProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,12 +13,13 @@ class UpdateProfileActivity : AppCompatActivity() {
     }
 
     fun onButtonUpdateBackClicked(view: View) {
-        val login = Intent(this, ProfileActivity::class.java )
-        startActivity(login)
+        val backProfil = Intent(this, ProfileActivity::class.java )
+        startActivity(backProfil)
     }
 
     fun onButtonSaveProfilClicked(view: View) {
-        val login = Intent(this, ProfileActivity::class.java )
-        startActivity(login)
+        Toast.makeText(this, "Perubahan Disimpan", Toast.LENGTH_SHORT).show()
+        val saveProfil = Intent(this, ProfileActivity::class.java )
+        startActivity(saveProfil)
     }
 }
