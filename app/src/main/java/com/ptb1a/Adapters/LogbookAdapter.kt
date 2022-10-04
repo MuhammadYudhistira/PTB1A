@@ -1,0 +1,42 @@
+package com.ptb1a.Adapters
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
+import com.ptb1a.R
+import com.ptb1a.models.Logbook
+
+class LogbookAdapter (
+    private val data: ArrayList<Logbook>
+): RecyclerView.Adapter<LogbookAdapter.LogbookViewHolder> (){
+
+    inner class LogbookViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+        private val Judul: TextView = itemView.findViewById(R.id.tvJudul)
+        private val Tanggal: TextView = itemView.findViewById(R.id.tvTanggal)
+
+        fun bind(data:Logbook){
+            Judul.text = data.judul
+            Tanggal.text = data.tanggal
+        }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LogbookViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.itemlogbook, parent,false)
+        return LogbookViewHolder(view)
+
+    }
+
+    override fun getItemCount(): Int {
+        return data.size
+    }
+
+    override fun onBindViewHolder(holder: LogbookViewHolder, position: Int) {
+//        val Logbook = getItem(position)
+//        holder.bind(Logbook)
+        holder.bind(data[position])
+    }
+
+}
+

@@ -18,5 +18,7 @@ class HomeActivity : AppCompatActivity() {
 
     fun onListMahasiswa1Clicked(view: View) {
         //ini nanti intent ke list logbook atau detail KP (bisa pakai fragment
+        val ListLogbook = Intent(this, ListLogbook::class.java )
+        startActivity(ListLogbook)
     }
 }
