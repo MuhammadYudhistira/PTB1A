@@ -1,5 +1,6 @@
 package com.ptb1a.Adapters
 
+import android.location.GnssAntennaInfo.Listener
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,21 +11,40 @@ import com.ptb1a.models.Logbook
 
 class LogbookAdapter (
     private val data: ArrayList<Logbook>
-): RecyclerView.Adapter<LogbookAdapter.LogbookViewHolder> (){
+): RecyclerView.Adapter<LogbookAdapter.LogbookViewHolder> () {
 
-    inner class LogbookViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    private lateinit var logbookListener: clickListener
+
+    interface clickListener {
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnClickListener(listener: clickListener) {
+        logbookListener = listener
+    }
+
+    inner class LogbookViewHolder(itemView: View, listener: clickListener) :
+        RecyclerView.ViewHolder(itemView) {
         private val Judul: TextView = itemView.findViewById(R.id.tvJudul)
         private val Tanggal: TextView = itemView.findViewById(R.id.tvTanggal)
 
-        fun bind(data:Logbook){
+        fun bind(data: Logbook) {
             Judul.text = data.judul
             Tanggal.text = data.tanggal
+        }
+
+        init {
+            itemView.setOnClickListener {
+                listener.onItemClick(adapterPosition)
+            }
+
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LogbookViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.itemlogbook, parent,false)
-        return LogbookViewHolder(view)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.itemlogbook, parent, false)
+        return LogbookViewHolder(view, logbookListener)
 
     }
 
@@ -37,6 +57,5 @@ class LogbookAdapter (
 //        holder.bind(Logbook)
         holder.bind(data[position])
     }
-
 }
 

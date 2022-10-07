@@ -1,11 +1,14 @@
 package com.ptb1a
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ptb1a.Adapters.LogbookAdapter
 import com.ptb1a.models.Logbook
+import java.text.FieldPosition
 
 class ListLogbook : AppCompatActivity() {
 
@@ -42,5 +45,15 @@ class ListLogbook : AppCompatActivity() {
         data.add(Logbook(7, "Minggu, 12 September 2022", "Mencari Objek",))
 
         adapter = LogbookAdapter(data)
-    }
+        adapter.setOnClickListener(object : LogbookAdapter.clickListener {
+            override fun onItemClick(position: Int) {
+
+                Toast.makeText(this@ListLogbook, "Item No. $position", Toast.LENGTH_SHORT).show()
+                val detailLogbook = Intent (this@ListLogbook, HomeActivity::class.java )
+                startActivity(detailLogbook)
+
+            }
+
+        })
+        }
 }
