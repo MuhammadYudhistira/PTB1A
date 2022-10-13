@@ -5,4 +5,4 @@
 
 <h4>Muhammad Yudhistira </h4>
 <h4>Harriko Nur Harzeki </h4>
-<h4>Khairul Zikri Burhan </h4>
+<h4>Khairul Zikria Burhan </h4>
