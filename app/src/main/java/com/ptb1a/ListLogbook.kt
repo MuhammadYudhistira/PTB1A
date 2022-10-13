@@ -45,10 +45,11 @@ class ListLogbook : AppCompatActivity() {
 
         adapter = LogbookAdapter(data)
         adapter.setOnClickListener(object : LogbookAdapter.clickListener {
+
             override fun onItemClick(position: Int) {
 
                 Toast.makeText(this@ListLogbook, "Item No. $position", Toast.LENGTH_SHORT).show()
-                val detailLogbook = Intent (this@ListLogbook, HomeActivity::class.java )
+                val detailLogbook = Intent (this@ListLogbook, DetailLogbook::class.java )
                 startActivity(detailLogbook)
 
             }
