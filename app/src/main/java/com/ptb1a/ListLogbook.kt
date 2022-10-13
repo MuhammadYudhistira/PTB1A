@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ptb1a.Adapters.LogbookAdapter
 import com.ptb1a.models.Logbook
-import java.text.FieldPosition
 
 class ListLogbook : AppCompatActivity() {
 
@@ -55,5 +54,5 @@ class ListLogbook : AppCompatActivity() {
             }
 
         })
-        }
+    }
 }
