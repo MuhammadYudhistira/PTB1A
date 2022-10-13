@@ -12,8 +12,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     fun onButtonProfilClicked(view: View) {
-        val login = Intent(this, ProfileActivity::class.java )
-        startActivity(login)
+        val profil = Intent(this, ProfileActivity::class.java )
+        startActivity(profil)
     }
 
     fun onListMahasiswa1Clicked(view: View) {
