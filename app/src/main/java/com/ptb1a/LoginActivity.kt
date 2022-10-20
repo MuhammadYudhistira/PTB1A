@@ -4,8 +4,12 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 
 class LoginActivity : AppCompatActivity() {
+
+//    private val isLoggedIn:Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -14,5 +18,13 @@ class LoginActivity : AppCompatActivity() {
     fun onButtonLoginClicked(view: View) {
         val login = Intent(this, HomeActivity::class.java )
         startActivity(login)
+        finish()
     }
+
+//    val login = if(!isLoggedIn){
+//        val loginIntent = Intent(this, LoginActivity::class.java )
+//        startActivity(loginIntent)
+//    } else {
+//
+//    }
 }

@@ -21,5 +21,6 @@ class ChangePasswordActivity : AppCompatActivity() {
         Toast.makeText(this, "Password Berhasil Diubah", Toast.LENGTH_SHORT).show()
         val savePassword = Intent(this, ProfileActivity::class.java )
         startActivity(savePassword)
+        finish()
     }
 }

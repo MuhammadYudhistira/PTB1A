@@ -16,7 +16,7 @@
             android:id="@+id/tvTanggal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="30dp"
             android:layout_marginTop="16dp"
             android:text="Senin, 6 September"
             android:textSize="20sp"

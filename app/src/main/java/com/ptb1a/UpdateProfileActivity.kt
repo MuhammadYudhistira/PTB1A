@@ -21,5 +21,6 @@ class UpdateProfileActivity : AppCompatActivity() {
         Toast.makeText(this, "Perubahan Disimpan", Toast.LENGTH_SHORT).show()
         val saveProfil = Intent(this, ProfileActivity::class.java )
         startActivity(saveProfil)
+        finish()
     }
 }

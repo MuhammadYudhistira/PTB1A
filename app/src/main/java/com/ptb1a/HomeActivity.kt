@@ -12,6 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.ptb1a.Adapters.MahasiswaAdapter
 import com.ptb1a.databinding.ActivityHomeBinding
 import com.ptb1a.models.Mahasiswa
+import kotlinx.android.synthetic.main.itemmahasiswa.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -34,25 +35,6 @@ class HomeActivity : AppCompatActivity() {
         val profil = Intent(this, ProfileActivity::class.java)
         startActivity(profil)
     }
-
-    //Buttom Sheet Modal
-    fun ShowDialog() {
-        val view: View = layoutInflater.inflate(R.layout.bottomsheet, null)
-        val dialog = BottomSheetDialog(this@HomeActivity)
-        dialog.setContentView(view)
-        dialog.show()
-
-        val BtnDetailKP = dialog.findViewById<Button>(R.id.buttonDetailKP)
-        BtnDetailKP?.setOnClickListener {
-            Toast.makeText(this@HomeActivity, "Detail KP", Toast.LENGTH_SHORT).show()
-        }
-        val BtnListLogbook = dialog.findViewById<Button>(R.id.ButtonListLogbook)
-        BtnListLogbook?.setOnClickListener {
-            val detailLogbook = Intent(this@HomeActivity, ListLogbook::class.java)
-            startActivity(detailLogbook)
-        }
-    }
-
     //Recycler View
     private fun init() {
         recyclerView = findViewById(R.id.rvListMahasiswa)
@@ -68,14 +50,28 @@ class HomeActivity : AppCompatActivity() {
         data.add(Mahasiswa(8, null, "Harriko Nur Harzeki", "2011523003", "Amazon"))
         data.add(Mahasiswa(9, null, "Khairul Zikria", "2011523003", "Meta"))
 
-
         adapter = MahasiswaAdapter(data)
         //Item Click Recycler View
         adapter.setOnClickListener(object : MahasiswaAdapter.onClickListener {
             override fun onItemClick(position: Int) {
-                ShowDialog()
+                //Buttom Sheet Modal
+                val view: View = layoutInflater.inflate(R.layout.bottomsheet, null)
+                val dialog = BottomSheetDialog(this@HomeActivity)
+                dialog.setContentView(view)
+                dialog.show()
+
+                val BtnDetailKP = dialog.findViewById<Button>(R.id.buttonDetailKP)
+                BtnDetailKP?.setOnClickListener {
+                    Toast.makeText(this@HomeActivity, "Detail KP", Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
+                }
+                val BtnListLogbook = dialog.findViewById<Button>(R.id.ButtonListLogbook)
+                BtnListLogbook?.setOnClickListener {
+                    val listLogbook = Intent(this@HomeActivity, ListLogbook::class.java)
+                    startActivity(listLogbook)
+                    dialog.dismiss()
+                }
             }
         })
     }
-
 }

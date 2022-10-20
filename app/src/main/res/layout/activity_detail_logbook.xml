@@ -7,7 +7,7 @@
     tools:context=".DetailLogbook">
 
     <TextView
-        android:id="@+id/DetailLogbookNama"
+        android:id="@+id/labelNamalogbook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/DetailLogbookNIM"
+        android:id="@+id/labelNIMlogbook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -26,10 +26,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DetailLogbookNama" />
+        app:layout_constraintTop_toBottomOf="@+id/labelNamalogbook" />
 
     <TextView
-        android:id="@+id/DetailLogbookTempat"
+        android:id="@+id/labelTempatlogbook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.073"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DetailLogbookNIM" />
+        app:layout_constraintTop_toBottomOf="@+id/labelNIMlogbook" />
 
     <TextView
         android:id="@+id/DetailLogbookCatatan"
@@ -49,7 +49,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DetailLogbookTanggal" />
+        app:layout_constraintTop_toBottomOf="@+id/labelTanggallogbook" />
 
     <TextView
         android:id="@+id/DetailLogbookRespon"
@@ -63,49 +63,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/DetailLogbookCatatan" />
 
-    <EditText
-        android:id="@+id/editTextTextMultiLine2"
-        android:layout_width="356dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Lorem"
-        android:inputType="textMultiLine"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DetailLogbookRespon" />
-
     <Button
-        android:id="@+id/buttonRespon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/btnRespon"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="32dp"
-        android:onClick="RespononClicked"
+        android:onClick="ResponClicked"
         android:text="Respon"
+        app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="OnClick" />
 
     <TextView
         android:id="@+id/tvCatatan"
-        android:layout_width="371dp"
+        android:layout_width="370dp"
         android:layout_height="170dp"
         android:text="Mencari-cari cari cari cari"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/DetailLogbookCatatan"
-        app:layout_constraintTop_toBottomOf="@+id/DetailLogbookCatatan"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/DetailLogbookCatatan" />
 
     <TextView
-        android:id="@+id/DetailLogbookTanggal"
+        android:id="@+id/labelTanggallogbook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="Tanggal:"
-        app:layout_constraintStart_toStartOf="@+id/DetailLogbookTempat"
-        app:layout_constraintTop_toBottomOf="@+id/DetailLogbookTempat" />
+        app:layout_constraintStart_toStartOf="@+id/labelTempatlogbook"
+        app:layout_constraintTop_toBottomOf="@+id/labelTempatlogbook" />
 
     <TextView
         android:id="@+id/textView3"
@@ -118,5 +106,46 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/responView"
+        android:layout_width="371dp"
+        android:layout_height="170dp"
+        android:text="Tingkatkan"
+        app:layout_constraintStart_toStartOf="@+id/DetailLogbookRespon"
+        app:layout_constraintTop_toBottomOf="@+id/DetailLogbookRespon" />
+
+    <TextView
+        android:id="@+id/namaDetailLogbook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Muhammad Yudhistira"
+        app:layout_constraintStart_toEndOf="@+id/labelNamalogbook"
+        app:layout_constraintTop_toTopOf="@+id/labelNamalogbook" />
+
+    <TextView
+        android:id="@+id/nimDetailLogbook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2011523003"
+        app:layout_constraintStart_toStartOf="@+id/namaDetailLogbook"
+        app:layout_constraintTop_toTopOf="@+id/labelNIMlogbook" />
+
+    <TextView
+        android:id="@+id/tempatDetailLogbook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Google"
+        app:layout_constraintStart_toStartOf="@+id/nimDetailLogbook"
+        app:layout_constraintTop_toTopOf="@+id/labelTempatlogbook" />
+
+    <TextView
+        android:id="@+id/tanggalDetailLogbook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Senin, 6 September 2022"
+        app:layout_constraintStart_toStartOf="@+id/tempatDetailLogbook"
+        app:layout_constraintTop_toTopOf="@+id/labelTanggallogbook" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
