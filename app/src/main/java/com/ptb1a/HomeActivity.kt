@@ -12,7 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.ptb1a.Adapters.MahasiswaAdapter
 import com.ptb1a.databinding.ActivityHomeBinding
 import com.ptb1a.models.Mahasiswa
-import kotlinx.android.synthetic.main.itemmahasiswa.*
+import kotlinx.android.synthetic.main.itemmahasiswa.view.*
 
 class HomeActivity : AppCompatActivity() {
 
@@ -67,8 +67,11 @@ class HomeActivity : AppCompatActivity() {
                 }
                 val BtnListLogbook = dialog.findViewById<Button>(R.id.ButtonListLogbook)
                 BtnListLogbook?.setOnClickListener {
-                    val listLogbook = Intent(this@HomeActivity, ListLogbook::class.java)
-                    startActivity(listLogbook)
+                    val Nama = binding.rvListMahasiswa.tvNamaMahasiswa.text.toString()
+
+                    val listLogbookIntent = Intent(this@HomeActivity, ListLogbook::class.java)
+                    listLogbookIntent.putExtra("NamaMahasiswa",Nama)
+                    startActivity(listLogbookIntent)
                     dialog.dismiss()
                 }
             }

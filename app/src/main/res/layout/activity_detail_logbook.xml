@@ -108,10 +108,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/responView"
+        android:id="@+id/tvRespon"
         android:layout_width="371dp"
         android:layout_height="170dp"
         android:text="Tingkatkan"
+        app:layout_constraintEnd_toEndOf="@+id/tvCatatan"
         app:layout_constraintStart_toStartOf="@+id/DetailLogbookRespon"
         app:layout_constraintTop_toBottomOf="@+id/DetailLogbookRespon" />
 

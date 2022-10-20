@@ -1,12 +1,9 @@
 package com.ptb1a.Adapters
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.ptb1a.R
+import com.ptb1a.databinding.ItemmahasiswaBinding
 import com.ptb1a.models.Mahasiswa
 
 class MahasiswaAdapter (
@@ -23,19 +20,13 @@ class MahasiswaAdapter (
         MahasiswaListener = listener
     }
 
-    class MahasiswaViewHolder(ItemView: View, listener: onClickListener):RecyclerView.ViewHolder(ItemView) {
-
-        private val Nama: TextView = itemView.findViewById(R.id.tvNama)
-        private val Nim: TextView = itemView.findViewById(R.id.tvNIM)
-        private val Tempat: TextView = itemView.findViewById(R.id.tvTempat)
-//        private val fotoprofil: ImageView = itemView.findViewById(R.id.ProfilMahasiswa)
+    inner class MahasiswaViewHolder(val itemBinding: ItemmahasiswaBinding ,listener: onClickListener):RecyclerView.ViewHolder(itemBinding.root) {
 
         fun bind(data: Mahasiswa) {
-            Nama.text = data.Nama
-            Nim.text = data.Nim
-            Tempat.text = data.Tempat
+            itemBinding.tvNamaMahasiswa.text= data.Nama
+            itemBinding.tvNIMMahasiswa.text= data.Nim
+            itemBinding.tvTempatKP.text= data.Tempat
         }
-
         init {
             itemView.setOnClickListener {
                 listener.onItemClick(adapterPosition)
@@ -44,9 +35,7 @@ class MahasiswaAdapter (
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MahasiswaViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.itemmahasiswa, parent, false)
-        return MahasiswaViewHolder(view, MahasiswaListener)
+        return MahasiswaViewHolder(ItemmahasiswaBinding.inflate(LayoutInflater.from(parent.context), parent,false), MahasiswaListener)
     }
 
     override fun onBindViewHolder(holder: MahasiswaViewHolder, position: Int) {

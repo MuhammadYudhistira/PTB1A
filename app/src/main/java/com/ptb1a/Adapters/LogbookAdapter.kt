@@ -22,8 +22,7 @@ class LogbookAdapter (
         logbookListener = listener
     }
 
-    inner class LogbookViewHolder(itemView: View, listener: clickListener) :
-        RecyclerView.ViewHolder(itemView) {
+    inner class LogbookViewHolder(itemView: View, listener: clickListener):RecyclerView.ViewHolder(itemView) {
         private val Judul: TextView = itemView.findViewById(R.id.tvJudul)
         private val Tanggal: TextView = itemView.findViewById(R.id.tvTanggal)
 

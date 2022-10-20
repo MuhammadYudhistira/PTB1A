@@ -7,16 +7,22 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ptb1a.Adapters.LogbookAdapter
+import com.ptb1a.databinding.ActivityListLogbookBinding
 import com.ptb1a.models.Logbook
 
 class ListLogbook : AppCompatActivity() {
 
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: LogbookAdapter
+    lateinit var binding: ActivityListLogbookBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list_logbook)
+        binding = ActivityListLogbookBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val getNama = intent.getStringExtra("NamaMahasiswa")
+        binding.tvNamaLogbook.text = getNama.toString()
 
         init ()
 

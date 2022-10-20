@@ -5,14 +5,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
+import com.ptb1a.databinding.ActivityDetailLogbookBinding
+import com.ptb1a.databinding.ActivityLoginBinding
+import com.ptb1a.databinding.ActivityResponBinding
 
 class LoginActivity : AppCompatActivity() {
 
 //    private val isLoggedIn:Boolean = false
+    lateinit var binding: ActivityLoginBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
     }
 
     fun onButtonLoginClicked(view: View) {
