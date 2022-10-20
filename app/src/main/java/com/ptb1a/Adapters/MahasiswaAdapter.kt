@@ -27,11 +27,13 @@ class MahasiswaAdapter (
 
         private val Nama: TextView = itemView.findViewById(R.id.tvNama)
         private val Nim: TextView = itemView.findViewById(R.id.tvNIM)
-        private val fotoprofil: ImageView = itemView.findViewById(R.id.ProfilMahasiswa)
+        private val Tempat: TextView = itemView.findViewById(R.id.tvTempat)
+//        private val fotoprofil: ImageView = itemView.findViewById(R.id.ProfilMahasiswa)
 
         fun bind(data: Mahasiswa) {
             Nama.text = data.Nama
             Nim.text = data.Nim
+            Tempat.text = data.Tempat
         }
 
         init {

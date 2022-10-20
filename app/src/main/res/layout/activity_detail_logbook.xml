@@ -10,12 +10,12 @@
         android:id="@+id/DetailLogbookNama"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="Nama: "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.071"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/DetailLogbookNIM"
@@ -29,11 +29,11 @@
         app:layout_constraintTop_toBottomOf="@+id/DetailLogbookNama" />
 
     <TextView
-        android:id="@+id/DetailLogbookTanggal"
+        android:id="@+id/DetailLogbookTempat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:text="Tanggal: "
+        android:text="Tempat: "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.073"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:text="Catatan"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -97,5 +97,26 @@
         app:layout_constraintStart_toStartOf="@+id/DetailLogbookCatatan"
         app:layout_constraintTop_toBottomOf="@+id/DetailLogbookCatatan"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/DetailLogbookTanggal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Tanggal:"
+        app:layout_constraintStart_toStartOf="@+id/DetailLogbookTempat"
+        app:layout_constraintTop_toBottomOf="@+id/DetailLogbookTempat" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="10dp"
+        android:text="Detail Logbook"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

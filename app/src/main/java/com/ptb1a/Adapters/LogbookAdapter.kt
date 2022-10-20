@@ -1,6 +1,5 @@
 package com.ptb1a.Adapters
 
-import android.location.GnssAntennaInfo.Listener
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup

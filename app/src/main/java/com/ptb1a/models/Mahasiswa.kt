@@ -7,4 +7,5 @@ data class Mahasiswa(
     val profil: ImageView?,
     val Nama: String,
     val Nim: String,
+    val Tempat: String
 )
