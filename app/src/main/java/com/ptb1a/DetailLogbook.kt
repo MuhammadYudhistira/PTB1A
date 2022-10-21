@@ -16,6 +16,21 @@ class DetailLogbook : AppCompatActivity() {
         binding = ActivityDetailLogbookBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val getNama = intent.getStringExtra("Nama")
+        binding.namaDetailLogbook.text = getNama
+
+        val getNim = intent.getStringExtra("Nim")
+        binding.nimDetailLogbook.text = getNim
+
+        val getTempat = intent.getStringExtra("Tempat")
+        binding.tempatDetailLogbook.text = getTempat
+
+        val getTanggal = intent.getStringExtra("Tanggal")
+        binding.tanggalDetailLogbook.text = getTanggal
+
+        val getCatatan = intent.getStringExtra("Catatan")
+        binding.tvCatatan.text = getCatatan
+
         val getRespon = intent.getStringExtra("Respon")
         binding.tvRespon.text = getRespon
 
@@ -23,7 +38,17 @@ class DetailLogbook : AppCompatActivity() {
     }
 
     fun ResponClicked(view: View) {
+        val Nama = binding.namaDetailLogbook.text.toString()
+        val Nim = binding.nimDetailLogbook.text.toString()
+        val Tempat = binding.tempatDetailLogbook.text.toString()
+        val Tanggal = binding.tanggalDetailLogbook.text.toString()
+        val Catatan = binding.tvCatatan.text.toString()
         val addRespon = Intent(this, Respon::class.java )
+        addRespon.putExtra("Nama",Nama)
+        addRespon.putExtra("Nim",Nim)
+        addRespon.putExtra("Tempat",Tempat)
+        addRespon.putExtra("Tanggal",Tanggal)
+        addRespon.putExtra("Catatan",Catatan)
         startActivity(addRespon)
     }
 }
