@@ -6,20 +6,19 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
-import androidx.core.view.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.ptb1a.Adapters.MahasiswaAdapter
 import com.ptb1a.databinding.ActivityHomeBinding
 import com.ptb1a.models.Mahasiswa
-import kotlinx.android.synthetic.main.itemmahasiswa.view.*
 
 class HomeActivity : AppCompatActivity() {
 
     lateinit var recyclerView: RecyclerView
     lateinit var adapter: MahasiswaAdapter
     lateinit var binding: ActivityHomeBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,9 +35,10 @@ class HomeActivity : AppCompatActivity() {
         val profil = Intent(this, ProfileActivity::class.java)
         startActivity(profil)
     }
+
     //Recycler View
     private fun init() {
-        recyclerView = findViewById(R.id.rvListMahasiswa)
+        recyclerView = binding.rvListMahasiswa
 
         var data = ArrayList<Mahasiswa>()
         data.add(Mahasiswa(1, null, "Muhammad Yudhistira", "2011523003", "Google"))
@@ -69,6 +69,7 @@ class HomeActivity : AppCompatActivity() {
                 val BtnListLogbook = dialog.findViewById<Button>(R.id.ButtonListLogbook)
                 BtnListLogbook?.setOnClickListener {
                     val listLogbookIntent = Intent(this@HomeActivity, ListLogbook::class.java)
+                    //binding
                     listLogbookIntent.putExtra("NamaMahasiswa", data[position].Nama)
                     listLogbookIntent.putExtra("NimMahasiswa", data[position].Nim)
                     listLogbookIntent.putExtra("TempatKP", data[position].Tempat)

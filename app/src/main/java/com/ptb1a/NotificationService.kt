@@ -1,36 +1,30 @@
 package com.ptb1a
+
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.view.View
+import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import com.ptb1a.databinding.ActivityDetailLogbookBinding
+import com.google.firebase.messaging.FirebaseMessagingService
+import com.google.firebase.messaging.RemoteMessage
 
-lateinit var binding: ActivityDetailLogbookBinding
+class NotificationService : FirebaseMessagingService() {
 
-class DetailLogbook : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        binding = ActivityDetailLogbookBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        binding.namaDetailLogbook.text = intent.getStringExtra("Nama")
-        binding.nimDetailLogbook.text = intent.getStringExtra("Nim")
-        binding.tempatDetailLogbook.text = intent.getStringExtra("Tempat")
-        binding.tanggalDetailLogbook.text = intent.getStringExtra("Tanggal")
-        binding.tvCatatan.text = intent.getStringExtra("Catatan")
-
-        val getRespon = intent.getStringExtra("Respon") //getting the Respon, can be used with just intent
-        binding.tvRespon.text = getRespon
+    override fun onNewToken(token: String) {
+        val TAG = "Service-Debug"
+        Log.d(TAG, "Refreshed token: $token")
     }
 
+    override fun onMessageReceived(remoteMessage: RemoteMessage) {
+
+        if(remoteMessage.notification != null){
+            createNotificationChannel()
+        }
+    }
 
     private fun createNotificationChannel() {
 
@@ -58,8 +52,8 @@ class DetailLogbook : AppCompatActivity() {
 
         val builder = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_username)
-            .setContentTitle("New Logbook From "+binding.namaDetailLogbook.text)
-            .setContentText(binding.tvCatatan.text)
+            .setContentTitle("New Logbook From")
+            .setContentText("test")
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             // Set the intent that will fire when the user taps the notification
             .setContentIntent(pendingIntent)
@@ -69,25 +63,5 @@ class DetailLogbook : AppCompatActivity() {
             // notificationId is a unique int for each notification that you must define
             notify(12312, builder.build())
         }
-    }
-
-
-
-    fun ResponClicked(view: View) {
-
-        val Nama = binding.namaDetailLogbook.text.toString()
-        val Nim = binding.nimDetailLogbook.text.toString()
-        val Tempat = binding.tempatDetailLogbook.text.toString()
-        val Tanggal = binding.tanggalDetailLogbook.text.toString()
-        val Catatan = binding.tvCatatan.text.toString()
-        val addRespon = Intent(this, Respon::class.java )
-        addRespon.putExtra("Nama",Nama)
-        addRespon.putExtra("Nim",Nim)
-        addRespon.putExtra("Tempat",Tempat)
-        addRespon.putExtra("Tanggal",Tanggal)
-        addRespon.putExtra("Catatan",Catatan)
-        startActivity(addRespon)
-
-        createNotificationChannel()
     }
 }

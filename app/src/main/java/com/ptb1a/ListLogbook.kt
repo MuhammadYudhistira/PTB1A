@@ -3,7 +3,6 @@ package com.ptb1a
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ptb1a.Adapters.LogbookAdapter
@@ -22,11 +21,11 @@ class ListLogbook : AppCompatActivity() {
         setContentView(binding.root)
 
         val getNama = intent.getStringExtra("NamaMahasiswa")
-        binding.tvNamaLogbook.text = getNama.toString()
+        binding.tvNamaLogbook.text = getNama
         val getNim = intent.getStringExtra("NimMahasiswa")
-        binding.tvNimLogbook.text = getNim.toString()
+        binding.tvNimLogbook.text = getNim
         val getTempat = intent.getStringExtra("TempatKP")
-        binding.tvTempatLogbook.text = getTempat.toString()
+        binding.tvTempatLogbook.text = getTempat
 
         init ()
 
