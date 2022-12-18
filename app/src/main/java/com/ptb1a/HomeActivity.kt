@@ -1,5 +1,6 @@
 package com.ptb1a
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -25,13 +26,20 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val sharedPref = getSharedPreferences("sharedpref", Context.MODE_PRIVATE)?: return
+        val token = sharedPref.getString("TOKEN", "")
+
         init()
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
     }
 
-    fun onButtonProfilClicked(view: View) {
+    fun harianOnClick(view: View) {
+        val harian = Intent(this, LogbookHarian::class.java)
+        startActivity(harian)
+    }
+    fun profileOnClick(view: View) {
         val profil = Intent(this, ProfileActivity::class.java)
         startActivity(profil)
     }
@@ -79,4 +87,7 @@ class HomeActivity : AppCompatActivity() {
             }
         })
     }
+
+
+
 }

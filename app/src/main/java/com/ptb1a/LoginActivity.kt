@@ -1,5 +1,6 @@
 package com.ptb1a
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -41,28 +42,38 @@ class LoginActivity : AppCompatActivity() {
 //        })
     }
 
-    //binding
-
-
     fun onButtonLoginClicked(view: View) {
         val username = binding.editusername.text.toString()
         val password = binding.editPassword.text.toString()
 
         val client: KPClient = Config().getService()
 
-        val call: Call<LoginResponse> = client.Login(username,password)
+        val call: Call<LoginResponse> = client.login(username,password)
 
         call.enqueue(object: Callback<LoginResponse> {
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Log.d("login-debug", username +":" + password + t.localizedMessage)
+                Log.d("login-debug",t.localizedMessage)
                 Toast.makeText(this@LoginActivity, t.localizedMessage, Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
 
+                //ambil respon login
                 val respon: LoginResponse? = response.body();
-                if (respon != null) {
+                if (respon != null && respon.status == "success" ) {
+
+                    //ambil Token
+                    val token = respon.authorisation?.token
+                    Log.d("login-debug",username +":"+ password +"|"+ token)
+
+                    //Shared Preference
+                    val sharedPref = getSharedPreferences("sharedpref", Context.MODE_PRIVATE) ?:return
+                    with (sharedPref.edit()) {
+                        putString("TOKEN", token)
+                        apply()
+                    }
                     Toast.makeText(this@LoginActivity, "Login Berhasil", Toast.LENGTH_SHORT).show()
+
                     intent = Intent(applicationContext, HomeActivity::class.java)
                     startActivity(intent)
                 } else {
