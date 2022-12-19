@@ -18,4 +18,7 @@ interface KPClient {
 
     @POST("/api/me/update")
     fun updateProfile(@Header("Authorization") token:String)
+
+    @POST("/api/logout")
+    fun logout(@Header("Authorization") token: String):Call<User>
 }

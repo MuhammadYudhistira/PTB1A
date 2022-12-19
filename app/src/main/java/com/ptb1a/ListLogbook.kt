@@ -1,5 +1,6 @@
 package com.ptb1a
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,9 +17,15 @@ class ListLogbook : AppCompatActivity() {
     lateinit var binding: ActivityListLogbookBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityListLogbookBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        val sharedPref = getSharedPreferences("sharedpref", Context.MODE_PRIVATE)?: return
+        val token = sharedPref.getString("TOKEN", "")
+
+        if(token != null) {
+
+            super.onCreate(savedInstanceState)
+            binding = ActivityListLogbookBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+        }
 
         val getNama = intent.getStringExtra("NamaMahasiswa")
         binding.tvNamaLogbook.text = getNama

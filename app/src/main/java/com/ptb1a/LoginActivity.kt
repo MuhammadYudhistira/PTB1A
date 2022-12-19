@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import com.google.android.gms.common.api.Api.Client
 import com.ptb1a.PojoModels.Config
 import com.ptb1a.PojoModels.KPClient
 import com.ptb1a.PojoModels.LoginResponse
@@ -15,11 +14,8 @@ import com.ptb1a.databinding.ActivityLoginBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
 
 class LoginActivity : AppCompatActivity() {
-
-    //    private val isLoggedIn:Boolean = false
     lateinit var binding: ActivityLoginBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +36,7 @@ class LoginActivity : AppCompatActivity() {
 //            Log.d(TAG, token)
 //            Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
 //        })
+
     }
 
     fun onButtonLoginClicked(view: View) {
@@ -53,7 +50,7 @@ class LoginActivity : AppCompatActivity() {
         call.enqueue(object: Callback<LoginResponse> {
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
                 Log.d("login-debug",t.localizedMessage)
-                Toast.makeText(this@LoginActivity, t.localizedMessage, Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this@LoginActivity, t.localizedMessage, Toast.LENGTH_SHORT).show()
             }
 
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
@@ -64,7 +61,8 @@ class LoginActivity : AppCompatActivity() {
 
                     //ambil Token
                     val token = respon.authorisation?.token
-                    Log.d("login-debug",username +":"+ password +"|"+ token)
+
+                    Log.d("login-debug",username +":"+ password +"|"+ token + "|" + respon)
 
                     //Shared Preference
                     val sharedPref = getSharedPreferences("sharedpref", Context.MODE_PRIVATE) ?:return
@@ -72,10 +70,13 @@ class LoginActivity : AppCompatActivity() {
                         putString("TOKEN", token)
                         apply()
                     }
+
                     Toast.makeText(this@LoginActivity, "Login Berhasil", Toast.LENGTH_SHORT).show()
 
                     intent = Intent(applicationContext, HomeActivity::class.java)
                     startActivity(intent)
+                    finish()
+
                 } else {
                     Toast.makeText(this@LoginActivity, "Username atau Password yang anda masukkan salah", Toast.LENGTH_SHORT).show()
                 }

@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -22,12 +23,19 @@ class HomeActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityHomeBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
         val sharedPref = getSharedPreferences("sharedpref", Context.MODE_PRIVATE)?: return
         val token = sharedPref.getString("TOKEN", "")
+
+        if(token != null) {
+
+            super.onCreate(savedInstanceState)
+            binding = ActivityHomeBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+
+        }
+
+        Log.d("home-debug", token.toString())
 
         init()
 
