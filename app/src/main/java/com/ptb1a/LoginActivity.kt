@@ -16,11 +16,24 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class LoginActivity : AppCompatActivity() {
+
     lateinit var binding: ActivityLoginBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val sharedPref = getSharedPreferences("sharedpref", Context.MODE_PRIVATE)?: return
+        val token = sharedPref.getString("TOKEN",null)
+
+        if(token != null){
+            Log.d("login-debug","Token : "+ token.toString())
+            intent = Intent(applicationContext, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         //TOKEN
 //        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
@@ -40,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun onButtonLoginClicked(view: View) {
-        val username = binding.editusername.text.toString()
+        val username = binding.editUsername.text.toString()
         val password = binding.editPassword.text.toString()
 
         val client: KPClient = Config().getService()
@@ -61,13 +74,15 @@ class LoginActivity : AppCompatActivity() {
 
                     //ambil Token
                     val token = respon.authorisation?.token
+                    val user = respon.user
 
-                    Log.d("login-debug",username +":"+ password +"|"+ token + "|" + respon)
+                    Log.d("login-debug", "$username:$password|$token|$respon")
 
                     //Shared Preference
-                    val sharedPref = getSharedPreferences("sharedpref", Context.MODE_PRIVATE) ?:return
+                    val sharedPref = getSharedPreferences("sharedpref", MODE_PRIVATE) ?:return
                     with (sharedPref.edit()) {
                         putString("TOKEN", token)
+                        putString("USER", user.toString())
                         apply()
                     }
 

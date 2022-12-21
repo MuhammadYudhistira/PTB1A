@@ -2,8 +2,10 @@ package com.ptb1a
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ptb1a.Adapters.LogbookAdapter
@@ -17,22 +19,21 @@ class ListLogbook : AppCompatActivity() {
     lateinit var binding: ActivityListLogbookBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val sharedPref = getSharedPreferences("sharedpref", Context.MODE_PRIVATE)?: return
-        val token = sharedPref.getString("TOKEN", "")
 
-        if(token != null) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityListLogbookBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-            super.onCreate(savedInstanceState)
-            binding = ActivityListLogbookBinding.inflate(layoutInflater)
-            setContentView(binding.root)
-        }
-
-        val getNama = intent.getStringExtra("NamaMahasiswa")
-        binding.tvNamaLogbook.text = getNama
-        val getNim = intent.getStringExtra("NimMahasiswa")
-        binding.tvNimLogbook.text = getNim
-        val getTempat = intent.getStringExtra("TempatKP")
-        binding.tvTempatLogbook.text = getTempat
+        val sharedPref = getSharedPreferences("mahasiswapref", Context.MODE_PRIVATE)?: return
+        val Nama = sharedPref.getString("NAMA",null)
+        val Nim = sharedPref.getString("NIM",null)
+        val Tempat = sharedPref.getString("TEMPAT",null)
+        val Profil = sharedPref.getString("PROFIL",null)
+        binding.tvNamaLogbook.text = Nama
+        binding.tvNimLogbook.text = Nim
+        binding.tvTempatLogbook.text = Tempat
+        binding.imageView4.setImageDrawable(Drawable.createFromPath(Profil))
+        Log.d("list-debug", Profil.toString())
 
         init ()
 
@@ -65,15 +66,13 @@ class ListLogbook : AppCompatActivity() {
 
             override fun onItemClick(position: Int) {
                 //binding
-                val Nama = binding.tvNamaLogbook.text.toString()
-                val Nim = binding.tvNimLogbook.text.toString()
-                val Tempat = binding.tvTempatLogbook.text.toString()
+                val sharedPref = getSharedPreferences("logbookpref", MODE_PRIVATE) ?: return
+                with (sharedPref.edit()) {
+                    putString("TANGGAL", data[position].tanggal)
+                    putString("JUDUL", data[position].judul)
+                    apply()
+                }
                 val detailLogbookIntent = Intent (this@ListLogbook, DetailLogbook::class.java )
-                detailLogbookIntent.putExtra("Nama",Nama)
-                detailLogbookIntent.putExtra("Nim",Nim)
-                detailLogbookIntent.putExtra("Tempat",Tempat)
-                detailLogbookIntent.putExtra("Tanggal", data[position].tanggal)
-                detailLogbookIntent.putExtra("Catatan", data[position].judul)
                 startActivity(detailLogbookIntent)
 
             }
