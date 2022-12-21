@@ -60,7 +60,7 @@ class HomeActivity : AppCompatActivity() {
 
 
         var data = ArrayList<Mahasiswa>()
-        data.add(Mahasiswa(1, ContextCompat.getDrawable(this, R.drawable.profil1), "Muhammad Yudhistira", "2011523003", "Google"))
+        data.add(Mahasiswa(1, null, "Muhammad Yudhistira", "2011523003", "Google"))
         data.add(Mahasiswa(2, null, "Harriko Nur Harzeki", "2011521024", "Amazon"))
         data.add(Mahasiswa(3, null, "Khairul Zikria", "1911522001", "Meta"))
         data.add(Mahasiswa(4, null, "Muhammad Yudhistira", "2011523003", "Google"))
