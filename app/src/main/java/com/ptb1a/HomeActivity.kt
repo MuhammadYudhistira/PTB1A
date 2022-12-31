@@ -58,7 +58,6 @@ class HomeActivity : AppCompatActivity() {
     private fun init() {
         recyclerView = binding.rvListMahasiswa
 
-
         var data = ArrayList<Mahasiswa>()
         data.add(Mahasiswa(1, null, "Muhammad Yudhistira", "2011523003", "Google"))
         data.add(Mahasiswa(2, null, "Harriko Nur Harzeki", "2011521024", "Amazon"))
@@ -103,7 +102,4 @@ class HomeActivity : AppCompatActivity() {
             }
         })
     }
-
-
-
 }

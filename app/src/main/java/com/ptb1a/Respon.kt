@@ -39,9 +39,8 @@ class Respon : AppCompatActivity() {
         ResponIntent.putExtra("Tempat",getTempat)
         ResponIntent.putExtra("Tanggal",getTanggal)
         ResponIntent.putExtra("Catatan",getCatatan)
-
+        ResponIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(ResponIntent)
-
         finish()
     }
 }

@@ -46,18 +46,25 @@ class ChangePasswordActivity : AppCompatActivity() {
                 Log.d("update-debug", "response : $response")
 
                 val respon: UpdatePasswordResponse? = response.body()
-                if (respon != null && respon.status == "success" && new_password == confirm_password) {
+                if(new_password == confirm_password && respon?.status == "error"){
+                    Toast.makeText(this@ChangePasswordActivity, "Current Password Salah", Toast.LENGTH_SHORT).show()
+
+                }
+                if(new_password != confirm_password){
+                    Toast.makeText(this@ChangePasswordActivity, "Current Password dan confirm Password tidak cocok", Toast.LENGTH_SHORT).show()
+
+                }
+                if (respon != null && respon.status == "success") {
 
                     Log.d("update-debug", "$old_password:$new_password|$confirm_password|$token|$respon")
 
                     Toast.makeText(this@ChangePasswordActivity, "Berhasil Mengupdate password", Toast.LENGTH_SHORT).show()
 
                     intent = Intent(applicationContext, ProfileActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                     startActivity(intent)
                     finish()
 
-                } else {
-                    Toast.makeText(this@ChangePasswordActivity, "Password & Confirm Passowrd Salah", Toast.LENGTH_SHORT).show()
                 }
             }
         })

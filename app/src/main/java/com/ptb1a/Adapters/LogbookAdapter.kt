@@ -51,8 +51,6 @@ class LogbookAdapter (
     }
 
     override fun onBindViewHolder(holder: LogbookViewHolder, position: Int) {
-//        val Logbook = getItem(position)
-//        holder.bind(Logbook)
         holder.bind(data[position])
     }
 }

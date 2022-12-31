@@ -61,6 +61,7 @@ class UpdateProfileActivity : AppCompatActivity() {
                     Toast.makeText(this@UpdateProfileActivity, "Berhasil Mengupdate Profile", Toast.LENGTH_SHORT).show()
 
                     intent = Intent(applicationContext, ProfileActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                     startActivity(intent)
                     finish()
 
