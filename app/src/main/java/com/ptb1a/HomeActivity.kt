@@ -81,7 +81,8 @@ class HomeActivity : AppCompatActivity() {
 
                 val BtnDetailKP = dialog.findViewById<Button>(R.id.buttonDetailKP)
                 BtnDetailKP?.setOnClickListener {
-                    Toast.makeText(this@HomeActivity, "Detail KP", Toast.LENGTH_SHORT).show()
+                    val detailKPIntent = Intent(this@HomeActivity, DetailKPActivity::class.java)
+                    startActivity(detailKPIntent)
                     dialog.dismiss()
                 }
                 val BtnListLogbook = dialog.findViewById<Button>(R.id.ButtonListLogbook)
