@@ -81,6 +81,17 @@ class HomeActivity : AppCompatActivity() {
 
                 val BtnDetailKP = dialog.findViewById<Button>(R.id.buttonDetailKP)
                 BtnDetailKP?.setOnClickListener {
+
+                    val sharedPref = getSharedPreferences("mahasiswapref", MODE_PRIVATE) ?: return@setOnClickListener
+                    with (sharedPref.edit()) {
+                        putString("NAMA", data[position].Nama)
+                        putString("NIM", data[position].Nim)
+                        putString("TEMPAT", data[position].Tempat)
+
+                        apply()
+                    }
+
+
                     val detailKPIntent = Intent(this@HomeActivity, DetailKPActivity::class.java)
                     startActivity(detailKPIntent)
                     dialog.dismiss()
