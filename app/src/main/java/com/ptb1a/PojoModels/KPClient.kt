@@ -50,7 +50,9 @@ interface KPClient {
     @PATCH("/api/internship-students/{id}/logbook/{id_logbook}")
     fun updateLogbook(@Header("Authorization") token: String,
                       @Path("id") id: Int,
-                      @Path("id_logbook") id_logbook:Int
+                      @Path("id_logbook") id_logbook:Int,
+                      @Field("status") status:Int,
+                      @Field("note") note:String,
     ):Call<UpdateLogbookResponse>
 
     @GET("/api/my-internship/{id}/logbook/{id_logbook}")

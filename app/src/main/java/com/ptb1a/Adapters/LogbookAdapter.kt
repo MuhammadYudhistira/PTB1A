@@ -1,18 +1,24 @@
 package com.ptb1a.Adapters
 
+import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.ptb1a.R
-import com.ptb1a.models.Logbook
+import com.ptb1a.PojoModels.LogbookItem
+import com.ptb1a.databinding.ItemlogbookBinding
 
-class LogbookAdapter (
-    private val data: ArrayList<Logbook>
-): RecyclerView.Adapter<LogbookAdapter.LogbookViewHolder> () {
+class LogbookAdapter():
+    RecyclerView.Adapter<LogbookAdapter.LogbookViewHolder> () {
+
 
     private lateinit var logbookListener: clickListener
+
+    var listLogbook: List<LogbookItem> = ArrayList()
+
+    fun setlistLogbook(listLogbook: List<LogbookItem>){
+            this.listLogbook = listLogbook
+            notifyDataSetChanged()
+        }
 
     interface clickListener {
         fun onItemClick(position: Int)
@@ -22,15 +28,7 @@ class LogbookAdapter (
         logbookListener = listener
     }
 
-    inner class LogbookViewHolder(itemView: View, listener: clickListener):RecyclerView.ViewHolder(itemView) {
-        private val Judul: TextView = itemView.findViewById(R.id.tvJudul)
-        private val Tanggal: TextView = itemView.findViewById(R.id.tvTanggal)
-
-        fun bind(data: Logbook) {
-            Judul.text = data.judul
-            Tanggal.text = data.tanggal
-        }
-
+    inner class LogbookViewHolder(val itemBinding: ItemlogbookBinding, listener: clickListener):RecyclerView.ViewHolder(itemBinding.root) {
         init {
             itemView.setOnClickListener {
                 listener.onItemClick(adapterPosition)
@@ -40,18 +38,18 @@ class LogbookAdapter (
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LogbookViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.itemlogbook, parent, false)
-        return LogbookViewHolder(view, logbookListener)
-
+        return  LogbookViewHolder(ItemlogbookBinding.inflate(LayoutInflater.from(parent.context), parent, false), logbookListener)
     }
 
     override fun getItemCount(): Int {
-        return data.size
+        return listLogbook.size
     }
 
     override fun onBindViewHolder(holder: LogbookViewHolder, position: Int) {
-        holder.bind(data[position])
+        val item : LogbookItem = listLogbook.get(position)
+        holder.itemBinding.tvJudul.text = item.activities
+        holder.itemBinding.tvTanggal.text = item.date
     }
+
 }
 
