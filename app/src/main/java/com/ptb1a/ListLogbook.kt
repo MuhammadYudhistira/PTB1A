@@ -39,6 +39,7 @@ class ListLogbook : AppCompatActivity() {
         val Nama = sharedPref.getString("NAMA",null)
         val Nim = sharedPref.getString("NIM",null)
         val Tempat = sharedPref.getString("TEMPAT",null)
+        val id = sharedPref.getInt("ID", 0)
 
         binding.tvNamaLogbook.text = Nama
         binding.tvNimLogbook.text = Nim
@@ -51,7 +52,7 @@ class ListLogbook : AppCompatActivity() {
         Log.d("list-debug", token.toString())
 
         val client: KPClient = Config().getService()
-        val call: Call<ListLogbookResponse> = client.listlogbook(token = "Bearer " + token, id = 5)
+        val call: Call<ListLogbookResponse> = client.listlogbook(token = "Bearer " + token, id)
 
         call.enqueue(object : Callback<ListLogbookResponse> {
             override fun onFailure(call: Call<ListLogbookResponse>, t: Throwable) {
@@ -60,11 +61,11 @@ class ListLogbook : AppCompatActivity() {
             }
 
             override fun onResponse(call: Call<ListLogbookResponse>, response: Response<ListLogbookResponse>) {
-
                 val respon = response.body()
                 if(respon != null){
                     val list : List<LogbookItem> = respon.logbooks as List<LogbookItem>
                     adapter.setlistLogbook(list)
+                    Log.d("list-debug", list.toString())
                 }
                 Log.d("list-debug", respon?.logbooks?.size.toString())
                 Log.d("list-debug", "respon : " + respon?.logbooks.toString())
@@ -83,6 +84,9 @@ class ListLogbook : AppCompatActivity() {
                 with (sharedPref.edit()) {
                     putString("TANGGAL", data[position].date)
                     putString("JUDUL", data[position].activities)
+                    data[position].internshipId?.let { putInt("ID", it) }
+                    data[position].id?.let { putInt("IDLOGBOOK", it) }
+
                     apply()
                 }
                 val detailLogbookIntent = Intent (this@ListLogbook, DetailLogbook::class.java )

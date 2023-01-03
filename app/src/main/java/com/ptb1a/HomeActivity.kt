@@ -92,7 +92,7 @@ class HomeActivity : AppCompatActivity() {
                         putString("NAMA", data[position].Nama)
                         putString("NIM", data[position].Nim)
                         putString("TEMPAT", data[position].Tempat)
-                        putString("PROFIL", data[position].profil.toString())
+                        putInt("ID", data[position].id)
                         apply()
                     }
                     val listLogbookIntent = Intent(this@HomeActivity, ListLogbook::class.java)
