@@ -23,7 +23,7 @@ class ProfileActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val sharedPref = getSharedPreferences("sharedpref", Context.MODE_PRIVATE)?: return
-        val token = sharedPref.getString("TOKEN", "")
+        val token = sharedPref.getString("TOKEN", null)
 
         if(token != null){
             Log.d("token", token)

@@ -7,7 +7,9 @@ import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
+import retrofit2.http.PATCH
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface KPClient {
     @FormUrlEncoded
@@ -38,4 +40,22 @@ interface KPClient {
 
     @POST("/api/logout")
     fun logout(@Header("Authorization") token: String):Call<LogoutResponse>
+
+    //3 API UAS
+    @GET("/api/my-internship/{id}/logbook")
+    fun listlogbook(@Header("Authorization") token: String,
+                    @Path("id") id:Int
+    ):Call<ListLogbookResponse>
+
+    @PATCH("/api/internship-students/{id}/logbook/{id_logbook}")
+    fun updateLogbook(@Header("Authorization") token: String,
+                      @Path("id") id: Int,
+                      @Path("id_logbook") id_logbook:Int
+    ):Call<UpdateLogbookResponse>
+
+    @GET("/api/my-internship/{id}/logbook/{id_logbook}")
+    fun detailLogbook(@Header("Authorization") token: String,
+                      @Path("id") id: Int,
+                      @Path("id_logbook") id_logbook: Int
+    ):Call<DetailLogbookResponse>
 }

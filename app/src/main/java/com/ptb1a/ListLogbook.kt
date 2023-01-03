@@ -9,8 +9,14 @@ import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ptb1a.Adapters.LogbookAdapter
+import com.ptb1a.PojoModels.Config
+import com.ptb1a.PojoModels.KPClient
+import com.ptb1a.PojoModels.ListLogbookResponse
 import com.ptb1a.databinding.ActivityListLogbookBinding
 import com.ptb1a.models.Logbook
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class ListLogbook : AppCompatActivity() {
 
@@ -39,6 +45,35 @@ class ListLogbook : AppCompatActivity() {
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+
+        val sharedToken = getSharedPreferences("sharedpref", Context.MODE_PRIVATE) ?: return
+        val token = sharedToken.getString("TOKEN", null)
+
+        Log.d("list-debug", token.toString())
+
+
+        val client: KPClient = Config().getService()
+        val call: Call<ListLogbookResponse> = client.listlogbook(token = "Bearer " + token, id = 5)
+
+        call.enqueue(object : Callback<ListLogbookResponse> {
+            override fun onFailure(call: Call<ListLogbookResponse>, t: Throwable) {
+                Log.d("list-debug", t.localizedMessage)
+//                Toast.makeText(this@LoginActivity, t.localizedMessage, Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(call: Call<ListLogbookResponse>, response: Response<ListLogbookResponse>) {
+
+                val respon = response.body()
+                if(respon != null){
+                    val logbooks: List<com.ptb1a.PojoModels.LogbookItem?>? = respon.logbooks
+                }
+                Log.d("list-debug", respon?.logbooks?.size.toString())
+                Log.d("list-debug", "respon : " + respon?.logbooks.toString())
+            }
+
+
+        })
+
     }
 
     private fun init(){
