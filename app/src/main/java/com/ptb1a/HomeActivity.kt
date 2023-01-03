@@ -87,10 +87,8 @@ class HomeActivity : AppCompatActivity() {
                         putString("NAMA", data[position].Nama)
                         putString("NIM", data[position].Nim)
                         putString("TEMPAT", data[position].Tempat)
-
                         apply()
                     }
-
 
                     val detailKPIntent = Intent(this@HomeActivity, DetailKPActivity::class.java)
                     startActivity(detailKPIntent)
