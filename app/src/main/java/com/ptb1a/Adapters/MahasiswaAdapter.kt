@@ -4,13 +4,20 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ptb1a.databinding.ItemmahasiswaBinding
+import com.ptb1a.models.InternshipsItem
 import com.ptb1a.models.Mahasiswa
 
 class MahasiswaAdapter (
-    private val data: ArrayList<Mahasiswa>
+
+    private var data: List<InternshipsItem>
     ):RecyclerView.Adapter<MahasiswaAdapter.MahasiswaViewHolder> () {
 
     private lateinit var MahasiswaListener: onClickListener
+
+    fun setListMahasiswa(listMahasiswa: List<InternshipsItem>){
+        this.data = listMahasiswa
+        notifyDataSetChanged()
+    }
 
     interface onClickListener{
         fun onItemClick(position: Int)
@@ -20,12 +27,12 @@ class MahasiswaAdapter (
         MahasiswaListener = listener
     }
 
-    inner class MahasiswaViewHolder(val itemBinding: ItemmahasiswaBinding ,listener: onClickListener):RecyclerView.ViewHolder(itemBinding.root) {
+    inner class MahasiswaViewHolder(val itemBinding: ItemmahasiswaBinding ,listener: onClickListener) :RecyclerView.ViewHolder(itemBinding.root) {
 
-        fun bind(data: Mahasiswa) {
-            itemBinding.tvNamaMahasiswa.text= data.Nama
-            itemBinding.tvNIMMahasiswa.text= data.Nim
-            itemBinding.tvTempatKP.text= data.Tempat
+        fun bind(data: InternshipsItem) {
+            itemBinding.tvNamaMahasiswa.text= data.name
+            itemBinding.tvNIMMahasiswa.text= data.nim
+            itemBinding.tvTempatKP.text= data.agency
         }
         init {
             itemView.setOnClickListener {

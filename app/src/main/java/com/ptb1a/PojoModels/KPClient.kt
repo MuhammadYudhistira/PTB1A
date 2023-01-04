@@ -1,5 +1,7 @@
 package com.ptb1a.PojoModels
 
+import com.ptb1a.models.InternshipsItem
+import com.ptb1a.models.ListMahasiswaBimbingan
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -36,5 +38,11 @@ interface KPClient {
 
     @POST("/api/logout")
     fun logout(@Header("Authorization") token: String):Call<LogoutResponse>
+
+    @GET("/api/internship-students")
+    fun getListMahasiswaBimbingan(@Header("Authorization") token: String):Call<ListMahasiswaBimbingan>
+
+    @GET("/api/internship-students")
+    fun getInternshipsItem(@Header("Authorization") token: String):Call<InternshipsItem>
 
 }
