@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ptb1a.Adapters.LogbookAdapter
@@ -21,7 +22,6 @@ import retrofit2.Response
 class ListLogbook : AppCompatActivity() {
 
     lateinit var recyclerView: RecyclerView
-    lateinit var adapter: LogbookAdapter
     lateinit var binding: ActivityListLogbookBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +30,7 @@ class ListLogbook : AppCompatActivity() {
         binding = ActivityListLogbookBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val adapter:LogbookAdapter = LogbookAdapter()
+        val adapter = LogbookAdapter()
 
         val sharedToken = getSharedPreferences("sharedpref", Context.MODE_PRIVATE) ?: return
         val token = sharedToken.getString("TOKEN", null)
@@ -79,24 +79,11 @@ class ListLogbook : AppCompatActivity() {
         adapter.setOnClickListener(object : LogbookAdapter.clickListener {
 
             override fun onItemClick(position: Int) {
-                //binding
-                val sharedPref = getSharedPreferences("logbookpref", MODE_PRIVATE) ?: return
-                with (sharedPref.edit()) {
-                    putString("TANGGAL", data[position].date)
-                    putString("JUDUL", data[position].activities)
-                    data[position].internshipId?.let { putInt("ID", it) }
-                    data[position].id?.let { putInt("IDLOGBOOK", it) }
-
-                    apply()
-                }
                 val detailLogbookIntent = Intent (this@ListLogbook, DetailLogbook::class.java )
+//                detailLogbookIntent.putExtra("id_logbook",data[position].id)
+//                detailLogbookIntent.putExtra("id_magang",data[position].internshipId)
                 startActivity(detailLogbookIntent)
-
             }
-
         })
-
-
     }
-
 }

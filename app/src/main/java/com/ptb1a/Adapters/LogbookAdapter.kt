@@ -1,6 +1,5 @@
 package com.ptb1a.Adapters
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,7 +8,6 @@ import com.ptb1a.databinding.ItemlogbookBinding
 
 class LogbookAdapter():
     RecyclerView.Adapter<LogbookAdapter.LogbookViewHolder> () {
-
 
     private lateinit var logbookListener: clickListener
 
@@ -31,9 +29,8 @@ class LogbookAdapter():
     inner class LogbookViewHolder(val itemBinding: ItemlogbookBinding, listener: clickListener):RecyclerView.ViewHolder(itemBinding.root) {
         init {
             itemView.setOnClickListener {
-                listener.onItemClick(adapterPosition)
+                listener.onItemClick(bindingAdapterPosition)
             }
-
         }
     }
 

@@ -30,16 +30,16 @@ class Respon : AppCompatActivity() {
         setContentView(view)
     }
 
-
-
     fun formRespononClicked(view: View) {
         val sharedPref = getSharedPreferences("sharedpref", Context.MODE_PRIVATE)?: return
         val token = sharedPref.getString("TOKEN",null)
 
         val note = binding.editRespon.text.toString()
 
+        Log.d("update-debug", "$note|Bearer $token")
+
         val client: KPClient = Config().getService()
-        val call: Call<UpdateLogbookResponse> = client.updateLogbook(token = "Bearer $token", id = 1, id_logbook = 1, status = 2, note = note )
+        val call: Call<UpdateLogbookResponse> = client.updateLogbook(token = "Bearer $token", id = 1, id_logbook = 1, status = 2, note )
         Log.d("update-debug", "$note|Bearer $token")
 
         call.enqueue(object: Callback<UpdateLogbookResponse> {

@@ -7,10 +7,15 @@ import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import com.ptb1a.PojoModels.*
 import com.ptb1a.databinding.ActivityDetailLogbookBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 lateinit var binding: ActivityDetailLogbookBinding
 
@@ -22,23 +27,40 @@ class DetailLogbook : AppCompatActivity() {
         setContentView(binding.root)
 
         val sharedPref = getSharedPreferences("mahasiswapref", Context.MODE_PRIVATE)?: return
-        val logbookpref = getSharedPreferences("logbookpref", Context.MODE_PRIVATE)?: return
+        val sharedToken = getSharedPreferences("sharedpref", Context.MODE_PRIVATE)?: return
         val Nama = sharedPref.getString("NAMA",null)
         val Nim = sharedPref.getString("NIM",null)
         val Tempat = sharedPref.getString("TEMPAT",null)
-        val Tanggal = logbookpref.getString("TANGGAL",null)
-        val Judul = logbookpref.getString("JUDUL",null)
+        val token = sharedToken.getString("TOKEN", null)
 
         binding.namaDetailLogbook.text = Nama
         binding.nimDetailLogbook.text = Nim
         binding.tempatDetailLogbook.text = Tempat
-        binding.tanggalDetailLogbook.text = Tanggal
-        binding.tvCatatan.text = Judul
 
-        val getRespon =
-            intent.getStringExtra("Respon") //getting the Respon, can be used with just intent
+        val getRespon = intent.getStringExtra("Respon") //getting the Respon, can be used with just intent
         binding.tvRespon.text = getRespon
 
+        val client: KPClient = Config().getService()
+        val call: Call<DetailLogbookResponse> = client.detailLogbook(token = "Bearer " + token, id = 2, id_logbook = 19)
+
+        call.enqueue(object : Callback<DetailLogbookResponse> {
+            override fun onFailure(call: Call<DetailLogbookResponse>, t: Throwable) {
+                Log.d("detail-debug", t.localizedMessage)
+//                Toast.makeText(this@LoginActivity, t.localizedMessage, Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onResponse(call: Call<DetailLogbookResponse>, response: Response<DetailLogbookResponse>) {
+                val respon = response.body()
+                if(respon != null){
+                    Log.d("Detail-debug", respon.toString())
+                    binding.tvCatatan.text = respon.logbook?.activities
+                    binding.tanggalDetailLogbook.text = respon.logbook?.date
+                    binding.tvJudulLogbook.text = respon.reportTitle
+                }
+
+            }
+
+        })
 
         fun createNotificationChannel() {
 

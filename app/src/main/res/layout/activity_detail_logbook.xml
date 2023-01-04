@@ -149,4 +149,20 @@
         app:layout_constraintStart_toStartOf="@+id/tempatDetailLogbook"
         app:layout_constraintTop_toTopOf="@+id/labelTanggallogbook" />
 
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Judul: "
+        app:layout_constraintStart_toStartOf="@+id/labelTanggallogbook"
+        app:layout_constraintTop_toBottomOf="@+id/labelTanggallogbook" />
+
+    <TextView
+        android:id="@+id/tvJudulLogbook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tanggalDetailLogbook"
+        app:layout_constraintTop_toTopOf="@+id/textView6" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
