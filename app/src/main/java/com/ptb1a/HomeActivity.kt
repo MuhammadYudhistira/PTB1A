@@ -7,14 +7,15 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.ptb1a.Adapters.MahasiswaAdapter
+import com.ptb1a.PojoModels.Config
+import com.ptb1a.PojoModels.KPClient
 import com.ptb1a.databinding.ActivityHomeBinding
 import com.ptb1a.models.Mahasiswa
+import retrofit2.Call
 
 class HomeActivity : AppCompatActivity() {
 
@@ -87,8 +88,10 @@ class HomeActivity : AppCompatActivity() {
                         putString("NAMA", data[position].Nama)
                         putString("NIM", data[position].Nim)
                         putString("TEMPAT", data[position].Tempat)
+
                         apply()
                     }
+
 
                     val detailKPIntent = Intent(this@HomeActivity, DetailKPActivity::class.java)
                     startActivity(detailKPIntent)
@@ -102,7 +105,7 @@ class HomeActivity : AppCompatActivity() {
                         putString("NAMA", data[position].Nama)
                         putString("NIM", data[position].Nim)
                         putString("TEMPAT", data[position].Tempat)
-                        putString("PROFIL", data[position].profil.toString())
+                        //putString("PROFIL", data[position].profil.toString())
                         apply()
                     }
                     val listLogbookIntent = Intent(this@HomeActivity, ListLogbook::class.java)

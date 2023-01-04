@@ -11,11 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text=":"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textWaktuPelaksanaan"
+        app:layout_constraintStart_toEndOf="@+id/textTanggalMulai"
         app:layout_constraintTop_toBottomOf="@+id/textTitikDua3" />
 
     <TextView
@@ -23,11 +23,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text=":"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textWaktuPelaksanaan"
+        app:layout_constraintStart_toEndOf="@+id/textTanggalMulai"
         app:layout_constraintTop_toBottomOf="@+id/textTitikDua4" />
 
     <TextView
@@ -35,24 +35,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text=":"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textWaktuPelaksanaan"
+        app:layout_constraintStart_toEndOf="@+id/textTanggalMulai"
         app:layout_constraintTop_toBottomOf="@+id/textTitikDua5" />
-
-    <TextView
-        android:id="@+id/textTitikDua7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text=":"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textWaktuPelaksanaan"
-        app:layout_constraintTop_toBottomOf="@+id/textTitikDua6" />
 
     <TextView
         android:id="@+id/textDetailKP"
@@ -71,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:text="Nama"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -83,7 +71,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="NIM"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -95,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="Instansi"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -103,40 +91,258 @@
         app:layout_constraintTop_toBottomOf="@+id/textNIM" />
 
     <TextView
-        android:id="@+id/textBidang"
+        android:id="@+id/textJudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="Bidang"
+        android:layout_marginTop="16dp"
+        android:text="Judul"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInstansi" />
 
     <TextView
-        android:id="@+id/textWaktuPelaksanaan"
+        android:id="@+id/textTanggalMulai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="Waktu Pelaksanaan"
+        android:layout_marginTop="16dp"
+        android:text="Tanggal Mulai"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textBidang" />
+        app:layout_constraintTop_toBottomOf="@+id/textJudul" />
+
+    <TextView
+        android:id="@+id/textTanggalSelesai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Tanggal Selesai"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTanggalMulai" />
+
+    <TextView
+        android:id="@+id/textTitikDua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text=":"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textTanggalMulai"
+        app:layout_constraintTop_toBottomOf="@+id/textDetailKP" />
+
+    <TextView
+        android:id="@+id/textTitikDua2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text=":"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textTanggalMulai"
+        app:layout_constraintTop_toBottomOf="@+id/textTitikDua" />
+
+    <TextView
+        android:id="@+id/textTitikDua3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text=":"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textTanggalMulai"
+        app:layout_constraintTop_toBottomOf="@+id/textTitikDua2" />
+
+    <Button
+        android:id="@+id/buttonInputNilai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="492dp"
+        android:onClick="inputNilaiOnClick"
+        android:text="Input Nilai"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.385"
+        app:layout_constraintStart_toEndOf="@+id/textContentNilai"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textContentNama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:text="Harriko Nur Harzeki"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textTitikDua"
+        app:layout_constraintTop_toBottomOf="@+id/textDetailKP" />
+
+    <TextView
+        android:id="@+id/textContentTanggalMulai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="dd/mm/yyyy"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textTitikDua5"
+        app:layout_constraintTop_toBottomOf="@+id/textContentJudul" />
+
+    <TextView
+        android:id="@+id/textContentNIM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="2011521024"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textTitikDua2"
+        app:layout_constraintTop_toBottomOf="@+id/textContentNama" />
+
+    <TextView
+        android:id="@+id/textContentTanggalSelesai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="dd/mm/yyyy"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textTitikDua6"
+        app:layout_constraintTop_toBottomOf="@+id/textContentTanggalMulai" />
+
+    <TextView
+        android:id="@+id/textContentPembimbing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="husnil kamil"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textTitikDua7"
+        app:layout_constraintTop_toBottomOf="@+id/textContentStatus" />
+
+    <TextView
+        android:id="@+id/textContentStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Diterima"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textTitikDua8"
+        app:layout_constraintTop_toBottomOf="@+id/textContentTanggalSelesai" />
+
+    <TextView
+        android:id="@+id/textPembimbing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Pembimbing"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textStatus" />
+
+    <TextView
+        android:id="@+id/textStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Status"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTanggalSelesai" />
+
+    <TextView
+        android:id="@+id/textContentTanggalSeminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="dd/mm/yyyy"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textTitikDua9"
+        app:layout_constraintTop_toBottomOf="@+id/textContentPembimbing" />
+
+    <TextView
+        android:id="@+id/textContentRuangSeminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Ruang A"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textTitikDua10"
+        app:layout_constraintTop_toBottomOf="@+id/textContentTanggalSeminar" />
+
+    <TextView
+        android:id="@+id/textContentDeadlineSeminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="dd/mm/yyyy"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textTitikDua10"
+        app:layout_constraintTop_toBottomOf="@+id/textContentRuangSeminar" />
+
+    <TextView
+        android:id="@+id/textContentNilai"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:text="A"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/textTitikDua10"
+        app:layout_constraintTop_toBottomOf="@+id/textContentDeadlineSeminar" />
 
     <TextView
         android:id="@+id/textTanggalSeminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="Tanggal Seminar"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textWaktuPelaksanaan" />
+        app:layout_constraintTop_toBottomOf="@+id/textPembimbing" />
+
+    <TextView
+        android:id="@+id/textRuangSeminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Ruang Seminar"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textTanggalSeminar" />
+
+    <TextView
+        android:id="@+id/textDeadlineSeminar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Deadline Seminar"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textRuangSeminar" />
 
     <TextView
         android:id="@+id/textNilai"
@@ -148,153 +354,110 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textTanggalSeminar" />
+        app:layout_constraintTop_toBottomOf="@+id/textDeadlineSeminar" />
 
     <TextView
-        android:id="@+id/textTitikDua"
+        android:id="@+id/textTitikDua7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="16dp"
         android:text=":"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textWaktuPelaksanaan"
-        app:layout_constraintTop_toBottomOf="@+id/textDetailKP" />
+        app:layout_constraintStart_toEndOf="@+id/textTanggalMulai"
+        app:layout_constraintTop_toBottomOf="@+id/textTitikDua8" />
 
     <TextView
-        android:id="@+id/textTitikDua2"
+        android:id="@+id/textTitikDua8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text=":"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textWaktuPelaksanaan"
-        app:layout_constraintTop_toBottomOf="@+id/textTitikDua" />
-
-    <TextView
-        android:id="@+id/textTitikDua3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:text=":"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textWaktuPelaksanaan"
-        app:layout_constraintTop_toBottomOf="@+id/textTitikDua2" />
-
-    <Button
-        android:id="@+id/buttonBatalkanKP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="508dp"
-        android:text="Batalkan KP"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textDetailKP" />
-
-    <Button
-        android:id="@+id/buttonInputNilaiKP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:onClick="inputNilaiOnClick"
-        android:text="Input"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.869"
-        app:layout_constraintStart_toEndOf="@+id/textTitikDua7"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textContentNama"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
-        android:text="Harriko Nur Harzeki"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textTitikDua"
-        app:layout_constraintTop_toBottomOf="@+id/textDetailKP" />
-
-    <TextView
-        android:id="@+id/textContentWaktuPelaksanaan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="40"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textTitikDua5"
-        app:layout_constraintTop_toBottomOf="@+id/textContentBidang" />
-
-    <TextView
-        android:id="@+id/textContentNIM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="2011521024"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textTitikDua2"
-        app:layout_constraintTop_toBottomOf="@+id/textContentNama" />
-
-    <TextView
-        android:id="@+id/textContentTanggalSeminar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="2/1/2023"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textTitikDua6"
-        app:layout_constraintTop_toBottomOf="@+id/textContentWaktuPelaksanaan" />
-
-    <TextView
-        android:id="@+id/textContentNIlai"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="-"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textTitikDua7"
-        app:layout_constraintTop_toBottomOf="@+id/textContentTanggalSeminar" />
+        app:layout_constraintStart_toEndOf="@+id/textTanggalMulai"
+        app:layout_constraintTop_toBottomOf="@+id/textTitikDua6" />
 
     <TextView
         android:id="@+id/textContentInstansi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="PT ABC"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/textTitikDua3"
         app:layout_constraintTop_toBottomOf="@+id/textContentNIM" />
 
     <TextView
-        android:id="@+id/textContentBidang"
+        android:id="@+id/textContentJudul"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="IT"
+        android:layout_marginTop="16dp"
+        android:text="Pembangunan SI Blablabla"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/textTitikDua4"
         app:layout_constraintTop_toBottomOf="@+id/textContentInstansi" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/textTitikDua9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="32dp"
-        android:text="Hari"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text=":"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textContentWaktuPelaksanaan"
-        app:layout_constraintTop_toBottomOf="@+id/textContentBidang" />
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textTanggalMulai"
+        app:layout_constraintTop_toBottomOf="@+id/textTitikDua7" />
+
+    <TextView
+        android:id="@+id/textTitikDua10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text=":"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textTanggalMulai"
+        app:layout_constraintTop_toBottomOf="@+id/textContentTanggalSeminar" />
+
+    <TextView
+        android:id="@+id/textTitikDua12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:text=":"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textTanggalMulai"
+        app:layout_constraintTop_toBottomOf="@+id/textContentRuangSeminar" />
+
+    <TextView
+        android:id="@+id/textTitikDua13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text=":"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textTanggalMulai"
+        app:layout_constraintTop_toBottomOf="@+id/textContentDeadlineSeminar" />
+
+    <Button
+        android:id="@+id/buttonAjukanPembatalan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="64dp"
+        android:text="Ajukan Pembatalan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

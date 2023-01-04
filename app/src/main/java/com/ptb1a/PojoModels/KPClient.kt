@@ -1,7 +1,5 @@
 package com.ptb1a.PojoModels
 
-import android.provider.ContactsContract.CommonDataKinds.Email
-import android.util.JsonToken
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -38,4 +36,5 @@ interface KPClient {
 
     @POST("/api/logout")
     fun logout(@Header("Authorization") token: String):Call<LogoutResponse>
+
 }
