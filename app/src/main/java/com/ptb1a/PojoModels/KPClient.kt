@@ -47,6 +47,7 @@ interface KPClient {
                     @Path("id") id:Int
     ):Call<ListLogbookResponse>
 
+    @FormUrlEncoded
     @PATCH("/api/internship-students/{id}/logbook/{id_logbook}")
     fun updateLogbook(@Header("Authorization") token: String,
                       @Path("id") id: Int,

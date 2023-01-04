@@ -37,11 +37,8 @@ class DetailLogbook : AppCompatActivity() {
         binding.nimDetailLogbook.text = Nim
         binding.tempatDetailLogbook.text = Tempat
 
-        val getRespon = intent.getStringExtra("Respon") //getting the Respon, can be used with just intent
-        binding.tvRespon.text = getRespon
-
         val client: KPClient = Config().getService()
-        val call: Call<DetailLogbookResponse> = client.detailLogbook(token = "Bearer " + token, id = 2, id_logbook = 19)
+        val call: Call<DetailLogbookResponse> = client.detailLogbook(token = "Bearer $token", id = 2, id_logbook = 20)
 
         call.enqueue(object : Callback<DetailLogbookResponse> {
             override fun onFailure(call: Call<DetailLogbookResponse>, t: Throwable) {
@@ -56,6 +53,7 @@ class DetailLogbook : AppCompatActivity() {
                     binding.tvCatatan.text = respon.logbook?.activities
                     binding.tanggalDetailLogbook.text = respon.logbook?.date
                     binding.tvJudulLogbook.text = respon.reportTitle
+                    binding.tvRespon.text = respon.logbook?.note as CharSequence?
                 }
 
             }

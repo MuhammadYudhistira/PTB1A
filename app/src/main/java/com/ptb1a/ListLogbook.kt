@@ -70,7 +70,6 @@ class ListLogbook : AppCompatActivity() {
                 Log.d("list-debug", respon?.logbooks?.size.toString())
                 Log.d("list-debug", "respon : " + respon?.logbooks.toString())
             }
-
         })
 
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -79,9 +78,9 @@ class ListLogbook : AppCompatActivity() {
         adapter.setOnClickListener(object : LogbookAdapter.clickListener {
 
             override fun onItemClick(position: Int) {
-                val detailLogbookIntent = Intent (this@ListLogbook, DetailLogbook::class.java )
+                val detailLogbookIntent = Intent (this@ListLogbook, DetailLogbook::class.java)
 //                detailLogbookIntent.putExtra("id_logbook",data[position].id)
-//                detailLogbookIntent.putExtra("id_magang",data[position].internshipId)
+//                detailLogbookIntent.putExtra("id_Extramagang",data[position].internshipId)
                 startActivity(detailLogbookIntent)
             }
         })

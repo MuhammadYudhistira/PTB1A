@@ -39,7 +39,7 @@ class Respon : AppCompatActivity() {
         Log.d("update-debug", "$note|Bearer $token")
 
         val client: KPClient = Config().getService()
-        val call: Call<UpdateLogbookResponse> = client.updateLogbook(token = "Bearer $token", id = 1, id_logbook = 1, status = 2, note )
+        val call: Call<UpdateLogbookResponse> = client.updateLogbook(token = "Bearer $token", 2, 20, 1, note )
         Log.d("update-debug", "$note|Bearer $token")
 
         call.enqueue(object: Callback<UpdateLogbookResponse> {
@@ -59,7 +59,7 @@ class Respon : AppCompatActivity() {
 
                     Toast.makeText(this@Respon, "Berhasil Mengupdate Respon", Toast.LENGTH_SHORT).show()
 
-                    intent = Intent(applicationContext, ProfileActivity::class.java)
+                    intent = Intent(applicationContext, DetailLogbook::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
                     startActivity(intent)
                     finish()
