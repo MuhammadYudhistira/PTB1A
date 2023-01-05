@@ -1,7 +1,5 @@
 package com.ptb1a.PojoModels
 
-import android.provider.ContactsContract.CommonDataKinds.Email
-import android.util.JsonToken
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -51,7 +49,7 @@ interface KPClient {
     @PATCH("/api/internship-students/{id}/logbook/{id_logbook}")
     fun updateLogbook(@Header("Authorization") token: String,
                       @Path("id") id: Int,
-                      @Path("id_logbook") id_logbook:Int,
+                      @Path("id_logbook") id_logbook: String?,
                       @Field("status") status:Int,
                       @Field("note") note:String,
     ):Call<UpdateLogbookResponse>
@@ -59,6 +57,6 @@ interface KPClient {
     @GET("/api/my-internship/{id}/logbook/{id_logbook}")
     fun detailLogbook(@Header("Authorization") token: String,
                       @Path("id") id: Int,
-                      @Path("id_logbook") id_logbook: Int
+                      @Path("id_logbook") id_logbook: String?
     ):Call<DetailLogbookResponse>
 }

@@ -35,10 +35,10 @@ class ListLogbook : AppCompatActivity() {
         val sharedToken = getSharedPreferences("sharedpref", Context.MODE_PRIVATE) ?: return
         val token = sharedToken.getString("TOKEN", null)
 
-        val sharedPref = getSharedPreferences("mahasiswapref", Context.MODE_PRIVATE)?: return
-        val Nama = sharedPref.getString("NAMA",null)
-        val Nim = sharedPref.getString("NIM",null)
-        val Tempat = sharedPref.getString("TEMPAT",null)
+        val sharedPref = getSharedPreferences("mahasiswapref", Context.MODE_PRIVATE) ?: return
+        val Nama = sharedPref.getString("NAMA", null)
+        val Nim = sharedPref.getString("NIM", null)
+        val Tempat = sharedPref.getString("TEMPAT", null)
         val id = sharedPref.getInt("ID", 0)
 
         binding.tvNamaLogbook.text = Nama
@@ -48,6 +48,9 @@ class ListLogbook : AppCompatActivity() {
 
         val data = ArrayList<LogbookItem>()
         recyclerView = binding.rvLogbook
+
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
 
         Log.d("list-debug", token.toString())
 
@@ -60,29 +63,39 @@ class ListLogbook : AppCompatActivity() {
 //                Toast.makeText(this@LoginActivity, t.localizedMessage, Toast.LENGTH_SHORT).show()
             }
 
-            override fun onResponse(call: Call<ListLogbookResponse>, response: Response<ListLogbookResponse>) {
+            override fun onResponse(
+                call: Call<ListLogbookResponse>,
+                response: Response<ListLogbookResponse>
+            ) {
                 val respon = response.body()
-                if(respon != null){
-                    val list : List<LogbookItem> = respon.logbooks as List<LogbookItem>
+                if (respon != null) {
+                    val list: List<LogbookItem> = respon.logbooks as List<LogbookItem>
                     adapter.setlistLogbook(list)
                     Log.d("list-debug", list.toString())
                 }
                 Log.d("list-debug", respon?.logbooks?.size.toString())
                 Log.d("list-debug", "respon : " + respon?.logbooks.toString())
-            }
-        })
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adapter
+                adapter.setOnClickListener(object : LogbookAdapter.onClickListener {
 
-        adapter.setOnClickListener(object : LogbookAdapter.clickListener {
-
-            override fun onItemClick(position: Int) {
-                val detailLogbookIntent = Intent (this@ListLogbook, DetailLogbook::class.java)
-//                detailLogbookIntent.putExtra("id_logbook",data[position].id)
+                    override fun onItemClick(position: Int) {
+                       val position =  respon?.logbooks?.get(position)
+                        val sharedPref = getSharedPreferences("logbookpref", MODE_PRIVATE) ?: return
+                        with (sharedPref.edit()) {
+                            putString("IDL", position?.id.toString())
+                            apply()
+                        }
+                        Log.d("Detail-update", position.toString())
+                        val intent = Intent(this@ListLogbook, DetailLogbook::class.java)
+//                        intent.putExtra("id_logbook", data[position].id)
 //                detailLogbookIntent.putExtra("id_Extramagang",data[position].internshipId)
-                startActivity(detailLogbookIntent)
+                        startActivity(intent)
+                    }
+                })
             }
+
         })
+
     }
+
 }

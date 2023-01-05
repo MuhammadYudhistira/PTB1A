@@ -80,7 +80,6 @@
         android:id="@+id/tvCatatan"
         android:layout_width="370dp"
         android:layout_height="170dp"
-        android:text="Mencari-cari cari cari cari"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/DetailLogbookCatatan"
@@ -111,7 +110,6 @@
         android:id="@+id/tvRespon"
         android:layout_width="371dp"
         android:layout_height="170dp"
-        android:text="Tingkatkan"
         app:layout_constraintEnd_toEndOf="@+id/tvCatatan"
         app:layout_constraintStart_toStartOf="@+id/DetailLogbookRespon"
         app:layout_constraintTop_toBottomOf="@+id/DetailLogbookRespon" />
@@ -121,7 +119,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:text="Muhammad Yudhistira"
         app:layout_constraintStart_toEndOf="@+id/labelNamalogbook"
         app:layout_constraintTop_toTopOf="@+id/labelNamalogbook" />
 
@@ -129,7 +126,6 @@
         android:id="@+id/nimDetailLogbook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2011523003"
         app:layout_constraintStart_toStartOf="@+id/namaDetailLogbook"
         app:layout_constraintTop_toTopOf="@+id/labelNIMlogbook" />
 
@@ -137,7 +133,6 @@
         android:id="@+id/tempatDetailLogbook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Google"
         app:layout_constraintStart_toStartOf="@+id/nimDetailLogbook"
         app:layout_constraintTop_toTopOf="@+id/labelTempatlogbook" />
 
@@ -145,7 +140,6 @@
         android:id="@+id/tanggalDetailLogbook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Senin, 6 September 2022"
         app:layout_constraintStart_toStartOf="@+id/tempatDetailLogbook"
         app:layout_constraintTop_toTopOf="@+id/labelTanggallogbook" />
 

@@ -8,7 +8,6 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import com.ptb1a.PojoModels.*
@@ -28,17 +27,24 @@ class DetailLogbook : AppCompatActivity() {
 
         val sharedPref = getSharedPreferences("mahasiswapref", Context.MODE_PRIVATE)?: return
         val sharedToken = getSharedPreferences("sharedpref", Context.MODE_PRIVATE)?: return
+        val logbookpref = getSharedPreferences("logbookpref", Context.MODE_PRIVATE)?: return
+
         val Nama = sharedPref.getString("NAMA",null)
         val Nim = sharedPref.getString("NIM",null)
         val Tempat = sharedPref.getString("TEMPAT",null)
+        val Id = sharedPref.getInt("ID", 0)
+
         val token = sharedToken.getString("TOKEN", null)
+
+        val IDL = logbookpref.getString("IDL",null)
+        Log.d("Detail-debug","responnn  "+ IDL.toString())
 
         binding.namaDetailLogbook.text = Nama
         binding.nimDetailLogbook.text = Nim
         binding.tempatDetailLogbook.text = Tempat
 
         val client: KPClient = Config().getService()
-        val call: Call<DetailLogbookResponse> = client.detailLogbook(token = "Bearer $token", id = 2, id_logbook = 20)
+        val call: Call<DetailLogbookResponse> = client.detailLogbook(token = "Bearer $token", Id, IDL)
 
         call.enqueue(object : Callback<DetailLogbookResponse> {
             override fun onFailure(call: Call<DetailLogbookResponse>, t: Throwable) {

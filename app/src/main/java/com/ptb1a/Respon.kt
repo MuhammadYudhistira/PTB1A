@@ -10,11 +10,7 @@ import android.widget.Toast
 import com.ptb1a.PojoModels.Config
 import com.ptb1a.PojoModels.KPClient
 import com.ptb1a.PojoModels.UpdateLogbookResponse
-import com.ptb1a.PojoModels.UpdateProfileResponse
-import com.ptb1a.databinding.ActivityHomeBinding
 import com.ptb1a.databinding.ActivityResponBinding
-import kotlinx.android.synthetic.main.activity_detail_logbook.*
-import kotlinx.android.synthetic.main.activity_respon.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -31,15 +27,21 @@ class Respon : AppCompatActivity() {
     }
 
     fun formRespononClicked(view: View) {
-        val sharedPref = getSharedPreferences("sharedpref", Context.MODE_PRIVATE)?: return
-        val token = sharedPref.getString("TOKEN",null)
+        val sharedPref = getSharedPreferences("mahasiswapref", Context.MODE_PRIVATE)?: return
+        val sharedToken = getSharedPreferences("sharedpref", Context.MODE_PRIVATE)?: return
+        val logbookpref = getSharedPreferences("logbookpref", Context.MODE_PRIVATE)?: return
+        val token = sharedToken.getString("TOKEN",null)
+
+        val Id = sharedPref.getInt("ID", 0)
+
+        val IDL = logbookpref.getString("IDL",null)
 
         val note = binding.editRespon.text.toString()
 
-        Log.d("update-debug", "$note|Bearer $token")
+        Log.d("update-debug", "$note|Bearer $token | $Id | $IDL")
 
         val client: KPClient = Config().getService()
-        val call: Call<UpdateLogbookResponse> = client.updateLogbook(token = "Bearer $token", 2, 20, 1, note )
+        val call: Call<UpdateLogbookResponse> = client.updateLogbook(token = "Bearer $token", Id, IDL, 1, note )
         Log.d("update-debug", "$note|Bearer $token")
 
         call.enqueue(object: Callback<UpdateLogbookResponse> {

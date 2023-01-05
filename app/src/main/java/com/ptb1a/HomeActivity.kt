@@ -59,15 +59,15 @@ class HomeActivity : AppCompatActivity() {
         recyclerView = binding.rvListMahasiswa
 
         var data = ArrayList<Mahasiswa>()
-        data.add(Mahasiswa(1, null, "Muhammad Yudhistira", "2011523003", "Google"))
-        data.add(Mahasiswa(2, null, "Harriko Nur Harzeki", "2011521024", "Amazon"))
-        data.add(Mahasiswa(3, null, "Khairul Zikria", "1911522001", "Meta"))
-        data.add(Mahasiswa(4, null, "Muhammad Yudhistira", "2011523003", "Google"))
-        data.add(Mahasiswa(5, null, "Harriko Nur Harzeki", "2011521024", "Amazon"))
-        data.add(Mahasiswa(6, null, "Khairul Zikria", "1911522001", "Meta"))
-        data.add(Mahasiswa(7, null, "Muhammad Yudhistira", "2011523003", "Google"))
-        data.add(Mahasiswa(8, null, "Harriko Nur Harzeki", "2011521024", "Amazon"))
-        data.add(Mahasiswa(9, null, "Khairul Zikria", "1911522001", "Meta"))
+        data.add(Mahasiswa(2, null, "Muhammad Yudhistira", "2011523003", "Google"))
+        data.add(Mahasiswa(3, null, "Harriko Nur Harzeki", "2011521024", "Amazon"))
+        data.add(Mahasiswa(4, null, "Khairul Zikria", "1911522001", "Meta"))
+        data.add(Mahasiswa(5, null, "Muhammad Yudhistira", "2011523003", "Google"))
+        data.add(Mahasiswa(6, null, "Harriko Nur Harzeki", "2011521024", "Amazon"))
+        data.add(Mahasiswa(7, null, "Khairul Zikria", "1911522001", "Meta"))
+        data.add(Mahasiswa(8, null, "Muhammad Yudhistira", "2011523003", "Google"))
+        data.add(Mahasiswa(9, null, "Harriko Nur Harzeki", "2011521024", "Amazon"))
+        data.add(Mahasiswa(10, null, "Khairul Zikria", "1911522001", "Meta"))
 
         adapter = MahasiswaAdapter(data)
         //Item Click Recycler View

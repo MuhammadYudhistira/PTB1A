@@ -9,7 +9,7 @@ import com.ptb1a.databinding.ItemlogbookBinding
 class LogbookAdapter():
     RecyclerView.Adapter<LogbookAdapter.LogbookViewHolder> () {
 
-    private lateinit var logbookListener: clickListener
+    private lateinit var logbookListener: onClickListener
 
     var listLogbook: List<LogbookItem> = ArrayList()
 
@@ -18,15 +18,15 @@ class LogbookAdapter():
             notifyDataSetChanged()
         }
 
-    interface clickListener {
+    interface onClickListener {
         fun onItemClick(position: Int)
     }
 
-    fun setOnClickListener(listener: clickListener) {
+    fun setOnClickListener(listener: onClickListener) {
         logbookListener = listener
     }
 
-    inner class LogbookViewHolder(val itemBinding: ItemlogbookBinding, listener: clickListener):RecyclerView.ViewHolder(itemBinding.root) {
+    inner class LogbookViewHolder(val itemBinding: ItemlogbookBinding, listener: onClickListener):RecyclerView.ViewHolder(itemBinding.root) {
         init {
             itemView.setOnClickListener {
                 listener.onItemClick(bindingAdapterPosition)
@@ -43,9 +43,11 @@ class LogbookAdapter():
     }
 
     override fun onBindViewHolder(holder: LogbookViewHolder, position: Int) {
-        val item : LogbookItem = listLogbook.get(position)
+        val item: LogbookItem = listLogbook[position]
         holder.itemBinding.tvJudul.text = item.activities
         holder.itemBinding.tvTanggal.text = item.date
+
+
     }
 
 }
