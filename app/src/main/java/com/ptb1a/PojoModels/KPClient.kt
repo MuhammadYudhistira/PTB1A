@@ -1,5 +1,6 @@
 package com.ptb1a.PojoModels
 
+import com.ptb1a.models.DetailKP
 import com.ptb1a.models.InternshipsItem
 import com.ptb1a.models.ListMahasiswaBimbingan
 import retrofit2.Call
@@ -8,6 +9,7 @@ import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
+import retrofit2.http.Path
 
 interface KPClient {
     @FormUrlEncoded
@@ -44,5 +46,9 @@ interface KPClient {
 
     @GET("/api/internship-students")
     fun getInternshipsItem(@Header("Authorization") token: String):Call<InternshipsItem>
+
+    @GET("/api/my-internship/{id}")
+    fun getDetailKP(@Header("Authorization") token: String,
+                    @Path("id") id:Int):Call<DetailKP>
 
 }

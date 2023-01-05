@@ -55,40 +55,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textNama"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="32dp"
-        android:text="Nama"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textDetailKP" />
-
-    <TextView
-        android:id="@+id/textNIM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="NIM"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textNama" />
-
-    <TextView
         android:id="@+id/textInstansi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="Instansi"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textNIM" />
+        app:layout_constraintTop_toBottomOf="@+id/textDetailKP" />
 
     <TextView
         android:id="@+id/textJudul"
@@ -127,7 +103,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textTanggalMulai" />
 
     <TextView
-        android:id="@+id/textTitikDua"
+        android:id="@+id/textTitikDua3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -138,52 +114,17 @@
         app:layout_constraintStart_toEndOf="@+id/textTanggalMulai"
         app:layout_constraintTop_toBottomOf="@+id/textDetailKP" />
 
-    <TextView
-        android:id="@+id/textTitikDua2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:text=":"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textTanggalMulai"
-        app:layout_constraintTop_toBottomOf="@+id/textTitikDua" />
-
-    <TextView
-        android:id="@+id/textTitikDua3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:text=":"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/textTanggalMulai"
-        app:layout_constraintTop_toBottomOf="@+id/textTitikDua2" />
-
     <Button
         android:id="@+id/buttonInputNilai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="492dp"
+        android:layout_marginTop="420dp"
         android:onClick="inputNilaiOnClick"
         android:text="Input Nilai"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.385"
         app:layout_constraintStart_toEndOf="@+id/textContentNilai"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textContentNama"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:text="Harriko Nur Harzeki"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textTitikDua"
-        app:layout_constraintTop_toBottomOf="@+id/textDetailKP" />
 
     <TextView
         android:id="@+id/textContentTanggalMulai"
@@ -195,17 +136,6 @@
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/textTitikDua5"
         app:layout_constraintTop_toBottomOf="@+id/textContentJudul" />
-
-    <TextView
-        android:id="@+id/textContentNIM"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:text="2011521024"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/textTitikDua2"
-        app:layout_constraintTop_toBottomOf="@+id/textContentNama" />
 
     <TextView
         android:id="@+id/textContentTanggalSelesai"
@@ -385,11 +315,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:text="PT ABC"
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/textTitikDua3"
-        app:layout_constraintTop_toBottomOf="@+id/textContentNIM" />
+        app:layout_constraintTop_toBottomOf="@+id/textDetailKP" />
 
     <TextView
         android:id="@+id/textContentJudul"
@@ -454,7 +384,7 @@
         android:id="@+id/buttonAjukanPembatalan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="100dp"
         android:text="Ajukan Pembatalan"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

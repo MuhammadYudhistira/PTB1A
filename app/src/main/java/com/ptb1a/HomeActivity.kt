@@ -81,6 +81,7 @@ class HomeActivity : AppCompatActivity() {
                     val list : List<InternshipsItem> = respon.internships as List<InternshipsItem>
                     adapter.setListMahasiswa(list)
                 }
+
             }
 
             override fun onFailure(call: Call<ListMahasiswaBimbingan>, t: Throwable) {
@@ -111,18 +112,20 @@ class HomeActivity : AppCompatActivity() {
                 val BtnDetailKP = dialog.findViewById<Button>(R.id.buttonDetailKP)
                 BtnDetailKP?.setOnClickListener {
 
-//                    val sharedPref = getSharedPreferences("mahasiswapref", MODE_PRIVATE) ?: return@setOnClickListener
-//                    with (sharedPref.edit()) {
-//                        putString("NAMA", data[position].name)
+                    val sharedPref = getSharedPreferences("mahasiswapref", MODE_PRIVATE) ?: return@setOnClickListener
+                    with (sharedPref.edit()) {
+                        //putString("ID", data[position].id)
 //                        putString("NIM", data[position].nim)
 //                        putString("TEMPAT", data[position].agency)
-//
-//                        apply()
-//                    }
-//
+
+                        apply()
+                    }
+
                     val detailKPIntent = Intent(this@HomeActivity, DetailKPActivity::class.java)
+
+                    //detailKPIntent.putExtra("id", data[position].id)
                     startActivity(detailKPIntent)
-//                    Toast.makeText(this@HomeActivity, "Berhasil Klik", Toast.LENGTH_SHORT).show()
+                    //Toast.makeText(this@HomeActivity, "Berhasil Klik", Toast.LENGTH_SHORT).show()
                     dialog.dismiss()
                 }
                 val BtnListLogbook = dialog.findViewById<Button>(R.id.ButtonListLogbook)
