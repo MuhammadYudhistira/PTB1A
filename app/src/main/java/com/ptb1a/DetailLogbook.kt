@@ -32,10 +32,13 @@ class DetailLogbook : AppCompatActivity() {
         val Nama = sharedPref.getString("NAMA",null)
         val Nim = sharedPref.getString("NIM",null)
         val Tempat = sharedPref.getString("TEMPAT",null)
+        //id intern
         val Id = sharedPref.getInt("ID", 0)
 
+        //token
         val token = sharedToken.getString("TOKEN", null)
 
+        //id logbook
         val IDL = logbookpref.getString("IDL",null)
         Log.d("Detail-debug","responnn  "+ IDL.toString())
 
@@ -110,7 +113,10 @@ class DetailLogbook : AppCompatActivity() {
 
         buttonRespon.setOnClickListener{
             val addRespon = Intent(this, Respon::class.java)
+            val respon = binding.tvRespon.text.toString()
+            addRespon.putExtra("Respon", respon)
             startActivity(addRespon)
+
             createNotificationChannel()
         }
     }

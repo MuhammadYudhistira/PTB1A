@@ -24,6 +24,10 @@ class Respon : AppCompatActivity() {
         binding = ActivityResponBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        val getRespon = intent.getStringExtra("Respon")
+        binding.editRespon.setText(getRespon)
+
     }
 
     fun formRespononClicked(view: View) {
@@ -71,8 +75,6 @@ class Respon : AppCompatActivity() {
                 }
             }
         })
-
-
 
         //binding
         val getNama = intent.getStringExtra("Nama")
